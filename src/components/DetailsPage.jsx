@@ -108,7 +108,7 @@ function InfoRow({ label, value }) {
 
 /* ── Main ─────────────────────────────────────────────────── */
 export default function DetailsPage({ guest, onLogout }) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const { d, h, m, s } = useCountdown(WEDDING_INFO.dateISO);
   const W = WEDDING_INFO;
 
@@ -166,7 +166,7 @@ export default function DetailsPage({ guest, onLogout }) {
           </div>
         </div>
 
-        <InfoCard IconComp={IconCalendar} subtitle={t.cardDate} title={W.date} delay="0.35s"/>
+        <InfoCard IconComp={IconCalendar} subtitle={t.cardDate} title={lang === 'pt' ? W.datePT : W.date} delay="0.35s"/>
 
         <InfoCard IconComp={IconChurch} subtitle={t.cardCeremonie} title={W.ceremonie.lieu} delay="0.45s">
           <InfoRow label={t.labelHeure}   value={W.ceremonie.heure}/>
@@ -179,11 +179,7 @@ export default function DetailsPage({ guest, onLogout }) {
         </InfoCard>
 
         <InfoCard IconComp={IconDress} subtitle={t.cardDresscode} title={t.cardDresscodeTitle} delay="0.62s">
-          <div className="dresscode-badge">✦ {W.dresscode}</div>
-        </InfoCard>
-
-        <InfoCard IconComp={IconEnvelope} subtitle={t.cardRsvp} title={W.rsvpDate} delay="0.68s">
-          <InfoRow label={t.labelContact} value={W.contact}/>
+          <div className="dresscode-badge">✦ {lang === 'pt' ? W.dresscodePT : W.dresscode}</div>
         </InfoCard>
 
         <Divider />

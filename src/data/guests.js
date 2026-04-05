@@ -81,6 +81,7 @@ export const WEDDING_INFO = {
   marie1: "Joao Gabriel",
   marie2: "Isabella",
   date: "Samedi 11 Juillet 2026",
+  datePT: "Sábado, 11 de Julho de 2026",
   dateISO: "2026-07-11",
 
   ceremonie: {
@@ -96,6 +97,7 @@ export const WEDDING_INFO = {
   },
 
   dresscode: "Tenue de soirée élégante",  // ← Modifier si besoin
+  dresscodePT: "Traje de gala elegante",
 
   rsvpDate: "À préciser",                 // ← Modifier
   contact: "À préciser",                  // ← Modifier (email ou numéro)
