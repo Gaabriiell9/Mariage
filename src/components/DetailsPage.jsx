@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { WEDDING_INFO } from '../data/guests';
 import Petals from './Petals';
 import PhotoBackground from './PhotoBackground';
+import { useLang } from '../context/LanguageContext';
 
 /* ── Countdown ─────────────────────────────────────────────── */
 function useCountdown(isoDate) {
@@ -107,6 +108,7 @@ function InfoRow({ label, value }) {
 
 /* ── Main ─────────────────────────────────────────────────── */
 export default function DetailsPage({ guest, onLogout }) {
+  const { t } = useLang();
   const { d, h, m, s } = useCountdown(WEDDING_INFO.dateISO);
   const W = WEDDING_INFO;
 
@@ -120,14 +122,11 @@ export default function DetailsPage({ guest, onLogout }) {
 
         {/* Welcome */}
         <div className="details-welcome">
-          <p className="details-welcome-greeting">Bienvenue,</p>
+          <p className="details-welcome-greeting">{t.welcomeGreeting}</p>
           <h1 className="details-welcome-name">
             {guest.prenom}{guest.nom ? ` ${guest.nom}` : ''}
           </h1>
-          <p className="details-welcome-msg">
-            Nous sommes si heureux de vous compter parmi nos invités pour ce jour si spécial.
-            Voici toutes les informations pour rejoindre notre célébration.
-          </p>
+          <p className="details-welcome-msg">{t.welcomeMsg}</p>
         </div>
 
         {/* Couple */}
@@ -143,48 +142,48 @@ export default function DetailsPage({ guest, onLogout }) {
 
         {/* Countdown */}
         <div className="countdown-section">
-          <p className="countdown-label">Compte à rebours jusqu'au grand jour</p>
+          <p className="countdown-label">{t.countdownLabel}</p>
           <div className="countdown-numbers">
             <div className="countdown-unit">
               <span className="countdown-number">{pad(d)}</span>
-              <span className="countdown-unit-label">Jours</span>
+              <span className="countdown-unit-label">{t.countdownDays}</span>
             </div>
             <span className="countdown-sep">:</span>
             <div className="countdown-unit">
               <span className="countdown-number">{pad(h)}</span>
-              <span className="countdown-unit-label">Heures</span>
+              <span className="countdown-unit-label">{t.countdownHours}</span>
             </div>
             <span className="countdown-sep">:</span>
             <div className="countdown-unit">
               <span className="countdown-number">{pad(m)}</span>
-              <span className="countdown-unit-label">Minutes</span>
+              <span className="countdown-unit-label">{t.countdownMinutes}</span>
             </div>
             <span className="countdown-sep">:</span>
             <div className="countdown-unit">
               <span className="countdown-number" style={{ animationDuration: '1s' }}>{pad(s)}</span>
-              <span className="countdown-unit-label">Secondes</span>
+              <span className="countdown-unit-label">{t.countdownSeconds}</span>
             </div>
           </div>
         </div>
 
-        <InfoCard IconComp={IconCalendar} subtitle="La Date" title={W.date} delay="0.35s"/>
+        <InfoCard IconComp={IconCalendar} subtitle={t.cardDate} title={W.date} delay="0.35s"/>
 
-        <InfoCard IconComp={IconChurch} subtitle="Cérémonie" title={W.ceremonie.lieu} delay="0.45s">
-          <InfoRow label="Heure"   value={W.ceremonie.heure}/>
-          <InfoRow label="Adresse" value={W.ceremonie.adresse}/>
+        <InfoCard IconComp={IconChurch} subtitle={t.cardCeremonie} title={W.ceremonie.lieu} delay="0.45s">
+          <InfoRow label={t.labelHeure}   value={W.ceremonie.heure}/>
+          <InfoRow label={t.labelAdresse} value={W.ceremonie.adresse}/>
         </InfoCard>
 
-        <InfoCard IconComp={IconGlass} subtitle="Réception & Dîner" title={W.reception.lieu} delay="0.55s">
-          <InfoRow label="Heure"   value={W.reception.heure}/>
-          <InfoRow label="Adresse" value={W.reception.adresse}/>
+        <InfoCard IconComp={IconGlass} subtitle={t.cardReception} title={W.reception.lieu} delay="0.55s">
+          <InfoRow label={t.labelHeure}   value={W.reception.heure}/>
+          <InfoRow label={t.labelAdresse} value={W.reception.adresse}/>
         </InfoCard>
 
-        <InfoCard IconComp={IconDress} subtitle="Dress Code" title="Tenue conseillée" delay="0.62s">
+        <InfoCard IconComp={IconDress} subtitle={t.cardDresscode} title={t.cardDresscodeTitle} delay="0.62s">
           <div className="dresscode-badge">✦ {W.dresscode}</div>
         </InfoCard>
 
-        <InfoCard IconComp={IconEnvelope} subtitle="RSVP — Avant le" title={W.rsvpDate} delay="0.68s">
-          <InfoRow label="Contact" value={W.contact}/>
+        <InfoCard IconComp={IconEnvelope} subtitle={t.cardRsvp} title={W.rsvpDate} delay="0.68s">
+          <InfoRow label={t.labelContact} value={W.contact}/>
         </InfoCard>
 
         <Divider />
@@ -200,7 +199,7 @@ export default function DetailsPage({ guest, onLogout }) {
         {/* Logout */}
         <div style={{ textAlign: 'center' }}>
           <button className="btn-logout" onClick={onLogout}>
-            &larr; Déconnexion
+            &larr; {t.logout}
           </button>
         </div>
 

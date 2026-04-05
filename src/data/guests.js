@@ -68,9 +68,9 @@ export const GUESTS = [
   { id: 38, prenom: "William", nom: "Ribeiro Borges", password: "RIBEIROBORGES" },
 
   // --- Individuels ---
-  { id: 39, prenom: "Naomie", nom: "", password: "NAOMIE" },
+  { id: 39, prenom: "Naomie", nom: "TOSE", password: "TOSE" },
   { id: 40, prenom: "Isabelle", nom: "Da Paixao", password: "DAPAIXAO" },
-  { id: 41, prenom: "Mathilde", nom: "", password: "MATHILDE" },
+  { id: 41, prenom: "Mathilde", nom: "Chaudruc", password: "CHAUDRUC" },
 ];
 
 // ============================================================

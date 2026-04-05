@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { GUESTS } from '../data/guests';
 import Petals from './Petals';
 import PhotoBackground from './PhotoBackground';
+import { useLang } from '../context/LanguageContext';
 
 function normalize(str) {
   return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -67,6 +68,7 @@ function DiamondSVG() {
 }
 
 export default function HomePage({ onSelectGuest }) {
+  const { t } = useLang();
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const containerRef = useRef(null);
@@ -102,18 +104,14 @@ export default function HomePage({ onSelectGuest }) {
 
       <div className="home-content">
         <div className="home-ornament"><HeartSVG /></div>
-        <p className="home-eyebrow">Vous êtes chaleureusement invité à</p>
-        <h1 className="home-title">Notre Mariage</h1>
+        <p className="home-eyebrow">{t.eyebrow}</p>
+        <h1 className="home-title">{t.title}</h1>
         <div className="home-divider">
           <div className="home-divider-line"/>
           <span className="home-divider-icon">✦</span>
           <div className="home-divider-line"/>
         </div>
-        <p className="home-description">
-          Recherchez votre prénom ou votre nom pour accéder à votre
-          invitation personnalisée et découvrir tous les détails de
-          notre célébration.
-        </p>
+        <p className="home-description">{t.description}</p>
 
         <div className="search-container" ref={containerRef}>
           <div className="search-wrapper">
@@ -121,7 +119,7 @@ export default function HomePage({ onSelectGuest }) {
             <input
               type="text"
               className="search-input"
-              placeholder="Rechercher votre prénom ou nom..."
+              placeholder={t.searchPlaceholder}
               value={query}
               onChange={(e) => { setQuery(e.target.value); setOpen(true); }}
               onFocus={() => { if (query.trim()) setOpen(true); }}
@@ -140,7 +138,7 @@ export default function HomePage({ onSelectGuest }) {
                   </span>
                 </div>
               )) : (
-                <div className="search-no-result">Aucun invité trouvé — vérifiez l'orthographe</div>
+                <div className="search-no-result">{t.noResult}</div>
               )}
             </div>
           )}

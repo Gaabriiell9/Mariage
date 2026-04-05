@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Petals from './Petals';
 import PhotoBackground from './PhotoBackground';
+import { useLang } from '../context/LanguageContext';
 
 function RingSVG() {
   return (
@@ -15,6 +16,7 @@ function RingSVG() {
 }
 
 export default function LoginPage({ guest, onLogin, onBack }) {
+  const { t } = useLang();
   const [password, setPassword] = useState('');
   const [error, setError]       = useState('');
   const [shake, setShake]       = useState(false);
@@ -30,7 +32,7 @@ export default function LoginPage({ guest, onLogin, onBack }) {
     if (clean === guest.password) {
       onLogin();
     } else {
-      setError('Mot de passe incorrect. Demandez à votre famille si besoin.');
+      setError(t.loginError);
       setShake(true);
       setTimeout(() => setShake(false), 600);
       setPassword('');
@@ -46,40 +48,36 @@ export default function LoginPage({ guest, onLogin, onBack }) {
       <div className="login-content">
         <div className={`login-card${shake ? ' shake' : ''}`}>
           <div className="login-icon"><RingSVG /></div>
-          <h2 className="login-title">Bienvenue !</h2>
-          <p className="login-subtitle">
-            Confirmez votre identité pour accéder<br/>à votre invitation personnalisée
-          </p>
+          <h2 className="login-title">{t.loginWelcome}</h2>
+          <p className="login-subtitle">{t.loginSubtitle}</p>
 
           <div className="form-group">
-            <label className="form-label">Votre prénom</label>
+            <label className="form-label">{t.labelPrenom}</label>
             <input type="text" className="form-input" value={guest.prenom} disabled/>
           </div>
 
           <div className="form-group">
-            <label className="form-label">Mot de passe famille</label>
+            <label className="form-label">{t.labelPassword}</label>
             <input
               ref={inputRef}
               type="password"
               className={`form-input${error ? ' has-error' : ''}`}
-              placeholder="Entrez le mot de passe..."
+              placeholder={t.passwordPlaceholder}
               value={password}
               onChange={(e) => { setPassword(e.target.value); setError(''); }}
               onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
               autoComplete="off"
             />
-            <p className="hint-text">
-              Le mot de passe correspond au nom de famille (majuscules, sans accents ni espaces)
-            </p>
+            <p className="hint-text">{t.passwordHint}</p>
           </div>
 
           {error && <div className="error-msg" role="alert">{error}</div>}
 
           <button className="btn-login" onClick={handleSubmit}>
-            Accéder à mon invitation &nbsp;✦
+            {t.loginBtn} &nbsp;✦
           </button>
           <button className="btn-back" onClick={onBack}>
-            &larr; Revenir à la recherche
+            &larr; {t.backBtn}
           </button>
         </div>
       </div>

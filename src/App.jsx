@@ -2,6 +2,7 @@ import { useState } from 'react';
 import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
 import DetailsPage from './components/DetailsPage';
+import LanguageSwitcher from './components/LanguageSwitcher';
 
 // Pages : 'home' | 'login' | 'details'
 
@@ -30,6 +31,7 @@ export default function App() {
 
   return (
     <>
+      <LanguageSwitcher />
       {page === 'home' && (
         <HomePage onSelectGuest={handleSelectGuest} />
       )}
