@@ -85,8 +85,8 @@ export const WEDDING_INFO = {
 
   ceremonie: {
     heure: "15h",              // ← Modifier
-    lieu: "Carbet du PK6",
-    adresse: "PK6, Guyane",          // ← Modifier si besoin
+    lieu: "Carbet du pk6",
+    adresse: "pk6, Guyane",          // ← Modifier si besoin
   },
 
   reception: {
