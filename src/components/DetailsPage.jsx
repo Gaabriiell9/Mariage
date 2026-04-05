@@ -70,6 +70,17 @@ function IconEnvelope() {
     </svg>
   );
 }
+function IconMenu() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+      stroke="white" strokeWidth="2" strokeLinecap="round">
+      <path d="M3 6 L21 6 M3 12 L21 12 M3 18 L21 18"/>
+      <circle cx="6" cy="6" r="1.5" fill="white" stroke="none"/>
+      <circle cx="6" cy="12" r="1.5" fill="white" stroke="none"/>
+      <circle cx="6" cy="18" r="1.5" fill="white" stroke="none"/>
+    </svg>
+  );
+}
 
 /* ── Sub-components ─────────────────────────────────────────── */
 function Divider() {
@@ -102,6 +113,108 @@ function InfoRow({ label, value }) {
     <div className="details-info-row">
       <span className="details-info-label">{label}</span>
       <span className="details-info-value">{value}</span>
+    </div>
+  );
+}
+
+/* ── Menu ─────────────────────────────────────────────────── */
+const MENU = {
+  salgados: ["Coxinha", "Esfiha", "Quibe", "Pastel", "Pão de queijo"],
+  plats: ["Gigo", "Lasagne", "Strogonoff", "Fricassée"],
+  accompagnements: ["Arroz", "Farofa", "Salade", "Batata palha"],
+  desserts: [
+    "Brigadeiro", "Beijinho", "Pudim de leite",
+    "Bolo de leite ninho", "Mousse de maracujá",
+    "Gâteau de mariage décoré",
+  ],
+};
+
+function MenuSection({ t }) {
+  const categories = [
+    { key: 'salgados',        label: t.menuSalgados,        items: MENU.salgados,        color: '#8B4560' },
+    { key: 'plats',           label: t.menuPlats,           items: MENU.plats,           color: '#7A5C3A' },
+    { key: 'accompagnements', label: t.menuAccompagnements, items: MENU.accompagnements, color: '#3D5A47' },
+    { key: 'desserts',        label: t.menuDesserts,        items: MENU.desserts,        color: '#B8933F' },
+  ];
+
+  return (
+    <div style={{
+      background: 'rgba(255,255,255,0.92)',
+      backdropFilter: 'blur(16px)',
+      borderRadius: 26,
+      padding: '32px 24px',
+      border: '1px solid rgba(240,228,196,0.75)',
+      boxShadow: '0 8px 36px rgba(44,24,16,0.07)',
+      marginBottom: 22,
+      animation: 'slideInCard 0.7s ease 0.72s both',
+    }}>
+
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 28 }}>
+        <div style={{
+          width: 52, height: 52,
+          background: 'linear-gradient(135deg, #B8933F, #D4B86A)',
+          borderRadius: 14,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          boxShadow: '0 4px 14px rgba(184,147,63,0.3)',
+          flexShrink: 0,
+        }}>
+          <IconMenu />
+        </div>
+        <div>
+          <p style={{
+            fontSize: '0.72rem', textTransform: 'uppercase',
+            letterSpacing: '0.14em', color: '#B8933F',
+            fontWeight: 700, marginBottom: 4,
+          }}>{t.menuSubtitle}</p>
+          <h3 style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: 'clamp(1.3rem, 4vw, 1.6rem)',
+            fontWeight: 500, color: '#2C1810',
+          }}>{t.menuTitle}</h3>
+        </div>
+      </div>
+
+      {/* Grid 2 colonnes sur desktop, 1 sur mobile */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+        gap: 16,
+      }}>
+        {categories.map(({ key, label, items, color }) => (
+          <div key={key} style={{
+            background: 'rgba(255,255,255,0.7)',
+            border: `1.5px solid ${color}22`,
+            borderRadius: 16,
+            padding: '18px 16px',
+            borderTop: `3px solid ${color}`,
+          }}>
+            <p style={{
+              fontSize: '0.7rem', textTransform: 'uppercase',
+              letterSpacing: '0.14em', color: color,
+              fontWeight: 700, marginBottom: 12,
+            }}>{label}</p>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              {items.map(item => (
+                <li key={item} style={{
+                  display: 'flex', alignItems: 'center', gap: 8,
+                  padding: '6px 0',
+                  borderBottom: '1px solid rgba(240,228,196,0.5)',
+                  fontSize: 'clamp(0.82rem, 2.5vw, 0.95rem)',
+                  color: '#2C1810',
+                  fontFamily: "'Nunito', sans-serif",
+                }}>
+                  <span style={{
+                    width: 6, height: 6, borderRadius: '50%',
+                    background: color, flexShrink: 0, opacity: 0.7,
+                  }}/>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -181,6 +294,8 @@ export default function DetailsPage({ guest, onLogout }) {
         <InfoCard IconComp={IconDress} subtitle={t.cardDresscode} title={t.cardDresscodeTitle} delay="0.62s">
           <div className="dresscode-badge">✦ {lang === 'pt' ? W.dresscodePT : W.dresscode}</div>
         </InfoCard>
+
+        <MenuSection t={t} />
 
         <Divider />
 
