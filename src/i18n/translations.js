@@ -33,7 +33,7 @@ export const translations = {
     logout: "Déconnexion",
     menuTitle: "Le Menu",
     menuSubtitle: "Ce qui vous attend à table",
-    menuSalgados: "Amuse-bouches",
+    menuSalgados: "Salées",
     menuPlats: "Plats Principaux",
     menuAccompagnements: "Accompagnements",
     menuDesserts: "Desserts",
