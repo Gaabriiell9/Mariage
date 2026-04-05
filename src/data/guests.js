@@ -91,7 +91,7 @@ export const WEDDING_INFO = {
   },
 
   reception: {
-    heure: "15h",              // ← Modifier
+    heure: "16h",              // ← Modifier
     lieu: "Carbet du PK6",
     adresse: "PK6, Guyane",          // ← Modifier si besoin
   },
