@@ -253,6 +253,42 @@ function SpecialMessage({ message }) {
         color: '#3A578C',
         filter: 'drop-shadow(0 2px 6px rgba(58,87,140,0.25))',
       }}>Joao Gabriel & Isabella</span>
+      <div style={{
+        position: 'absolute',
+        bottom: 10,
+        right: 14,
+        opacity: 0.55,
+        fontSize: '1.4rem',
+        lineHeight: 1,
+        userSelect: 'none',
+      }}>
+        <svg width="32" height="32" viewBox="0 0 64 64" fill="none">
+          {/* Oreilles */}
+          <circle cx="12" cy="28" r="8" fill="#8B6340"/>
+          <circle cx="52" cy="28" r="8" fill="#8B6340"/>
+          <circle cx="12" cy="28" r="5" fill="#C4956A"/>
+          <circle cx="52" cy="28" r="5" fill="#C4956A"/>
+          {/* Tête */}
+          <ellipse cx="32" cy="26" rx="18" ry="17" fill="#8B6340"/>
+          {/* Visage clair */}
+          <ellipse cx="32" cy="30" rx="12" ry="10" fill="#C4956A"/>
+          {/* Yeux */}
+          <circle cx="26" cy="24" r="3.5" fill="white"/>
+          <circle cx="38" cy="24" r="3.5" fill="white"/>
+          <circle cx="27" cy="24" r="2" fill="#1A1A1A"/>
+          <circle cx="39" cy="24" r="2" fill="#1A1A1A"/>
+          <circle cx="27.8" cy="23.2" r="0.7" fill="white"/>
+          <circle cx="39.8" cy="23.2" r="0.7" fill="white"/>
+          {/* Nez */}
+          <ellipse cx="32" cy="29" rx="3" ry="2" fill="#6B4226"/>
+          <circle cx="30.5" cy="28.5" r="0.8" fill="#3A1A0A"/>
+          <circle cx="33.5" cy="28.5" r="0.8" fill="#3A1A0A"/>
+          {/* Sourire */}
+          <path d="M27 33 Q32 37 37 33" stroke="#6B4226" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+          {/* Sommet tête */}
+          <ellipse cx="32" cy="11" rx="10" ry="6" fill="#6B4226"/>
+        </svg>
+      </div>
     </div>
   );
 }
