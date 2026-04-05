@@ -255,38 +255,77 @@ function SpecialMessage({ message }) {
       }}>Joao Gabriel & Isabella</span>
       <div style={{
         position: 'absolute',
-        bottom: 10,
-        right: 14,
-        opacity: 0.55,
-        fontSize: '1.4rem',
-        lineHeight: 1,
+        bottom: 8,
+        right: 10,
+        opacity: 0.9,
         userSelect: 'none',
       }}>
-        <svg width="32" height="32" viewBox="0 0 64 64" fill="none">
+        <svg width="52" height="72" viewBox="0 0 52 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+          {/* === CORPS === */}
+          <ellipse cx="26" cy="52" rx="13" ry="16" fill="#7A5230"/>
+
+          {/* === BRAS GAUCHE levé (grimace) === */}
+          <path d="M13 44 Q4 36 6 26 Q7 22 10 24 Q9 32 16 40Z" fill="#7A5230"/>
+          <ellipse cx="7.5" cy="24" rx="3.5" ry="3" fill="#C4956A"/>
+
+          {/* === BRAS DROIT baissé === */}
+          <path d="M39 44 Q48 50 46 58 Q45 62 42 60 Q44 54 38 48Z" fill="#7A5230"/>
+          <ellipse cx="44.5" cy="61" rx="3.5" ry="3" fill="#C4956A"/>
+
+          {/* === JAMBES === */}
+          <path d="M20 66 Q18 72 14 72 Q12 72 12 70 Q15 70 17 64Z" fill="#7A5230"/>
+          <path d="M32 66 Q34 72 38 72 Q40 72 40 70 Q37 70 35 64Z" fill="#7A5230"/>
+          {/* Pieds */}
+          <ellipse cx="13" cy="71" rx="4" ry="2" fill="#C4956A"/>
+          <ellipse cx="39" cy="71" rx="4" ry="2" fill="#C4956A"/>
+
+          {/* === VENTRE clair === */}
+          <ellipse cx="26" cy="53" rx="8" ry="10" fill="#C4956A"/>
+
+          {/* === TÊTE === */}
+          <ellipse cx="26" cy="26" rx="16" ry="15" fill="#7A5230"/>
+
           {/* Oreilles */}
-          <circle cx="12" cy="28" r="8" fill="#8B6340"/>
-          <circle cx="52" cy="28" r="8" fill="#8B6340"/>
-          <circle cx="12" cy="28" r="5" fill="#C4956A"/>
-          <circle cx="52" cy="28" r="5" fill="#C4956A"/>
-          {/* Tête */}
-          <ellipse cx="32" cy="26" rx="18" ry="17" fill="#8B6340"/>
-          {/* Visage clair */}
-          <ellipse cx="32" cy="30" rx="12" ry="10" fill="#C4956A"/>
-          {/* Yeux */}
-          <circle cx="26" cy="24" r="3.5" fill="white"/>
-          <circle cx="38" cy="24" r="3.5" fill="white"/>
-          <circle cx="27" cy="24" r="2" fill="#1A1A1A"/>
-          <circle cx="39" cy="24" r="2" fill="#1A1A1A"/>
-          <circle cx="27.8" cy="23.2" r="0.7" fill="white"/>
-          <circle cx="39.8" cy="23.2" r="0.7" fill="white"/>
-          {/* Nez */}
-          <ellipse cx="32" cy="29" rx="3" ry="2" fill="#6B4226"/>
-          <circle cx="30.5" cy="28.5" r="0.8" fill="#3A1A0A"/>
-          <circle cx="33.5" cy="28.5" r="0.8" fill="#3A1A0A"/>
-          {/* Sourire */}
-          <path d="M27 33 Q32 37 37 33" stroke="#6B4226" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-          {/* Sommet tête */}
-          <ellipse cx="32" cy="11" rx="10" ry="6" fill="#6B4226"/>
+          <circle cx="10" cy="26" r="6" fill="#7A5230"/>
+          <circle cx="10" cy="26" r="3.8" fill="#C4956A"/>
+          <circle cx="42" cy="26" r="6" fill="#7A5230"/>
+          <circle cx="42" cy="26" r="3.8" fill="#C4956A"/>
+
+          {/* Museau proéminent */}
+          <ellipse cx="26" cy="31" rx="10" ry="7" fill="#C4956A"/>
+
+          {/* === YEUX TROLL (grands, exorbités) === */}
+          <circle cx="20" cy="23" r="5.5" fill="white"/>
+          <circle cx="32" cy="23" r="5.5" fill="white"/>
+          {/* Iris */}
+          <circle cx="21" cy="24" r="3.2" fill="#3A1A00"/>
+          <circle cx="33" cy="24" r="3.2" fill="#3A1A00"/>
+          {/* Reflets */}
+          <circle cx="22" cy="22.5" r="1.1" fill="white"/>
+          <circle cx="34" cy="22.5" r="1.1" fill="white"/>
+          {/* Sourcils relevés (grimace) */}
+          <path d="M15 17 Q20 13 25 16" stroke="#4A2800" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+          <path d="M27 16 Q32 13 37 17" stroke="#4A2800" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+
+          {/* === NARINE === */}
+          <circle cx="23" cy="30" r="1.4" fill="#5A3010"/>
+          <circle cx="29" cy="30" r="1.4" fill="#5A3010"/>
+
+          {/* === BOUCHE TROLL grande ouverte avec langue === */}
+          <path d="M17 34 Q26 42 35 34" fill="#3A0A0A"/>
+          <path d="M17 34 Q26 42 35 34 Q35 34 35 33 Q26 40 17 33Z" fill="#C0392B"/>
+          {/* Langue tirée */}
+          <ellipse cx="26" cy="40" rx="5" ry="3.5" fill="#E74C3C"/>
+          <line x1="26" y1="37" x2="26" y2="43" stroke="#C0392B" strokeWidth="0.8"/>
+          {/* Dents */}
+          <rect x="20" y="34" width="4" height="3" rx="1" fill="white"/>
+          <rect x="25" y="34" width="4" height="3" rx="1" fill="white"/>
+          <rect x="30" y="34" width="4" height="3" rx="1" fill="white"/>
+
+          {/* === QUEUE === */}
+          <path d="M39 60 Q52 55 50 44 Q48 36 42 38" stroke="#7A5230" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+
         </svg>
       </div>
     </div>
