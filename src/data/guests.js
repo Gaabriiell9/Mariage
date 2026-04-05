@@ -25,7 +25,7 @@ export const GUESTS = [
   // --- Famille SENA ---
   {
     id: 13, prenom: "Jeff", nom: "Sena", password: "SENA",
-    specialMessage: "Falaaa bb, pow man valeu ai por fazer meu casamento por livre e espontanea pressao kkk tu e vitoria sao os unicos preto que vou deixar entrar, ta qui o convite official quem nao tiver nao entra. ta vendo essa macaquinho parece tu"
+    specialMessage: "Falaaa bb, pow man valeu ai por fazer meu casamento por livre e espontanea pressao kkk tu e Vitoria sao os unicos preto que vou deixar entrar, ta qui o convite official quem nao tiver vai ficar fora, e ta vendo essa macaquinho ta com o buxo igual tu man kkkk, ver se tu vai treinar man"
   },
   { id: 14, prenom: "Victoria", nom: "Sena", password: "SENA" },
   { id: 15, prenom: "Abigail", nom: "Sena", password: "SENA" },
