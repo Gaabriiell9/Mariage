@@ -301,10 +301,8 @@ export default function DetailsPage({ guest, onLogout }) {
 
         {/* Message */}
         <div className="details-note">
-          <p className="details-note-text">"{W.messagePersonnel}"</p>
-          <span className="details-note-signature">
-            {W.marie1} &amp; {W.marie2}
-          </span>
+          <p className="details-note-text">« {t.messagePersonnel} »</p>
+          <span className="details-note-signature">{t.messagePersonnelRef}</span>
         </div>
 
         {/* Logout */}

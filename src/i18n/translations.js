@@ -37,6 +37,8 @@ export const translations = {
     menuPlats: "Plats Principaux",
     menuAccompagnements: "Accompagnements",
     menuDesserts: "Desserts",
+    messagePersonnel: "afin qu'ils voient, qu'ils sachent, qu'ils considèrent et comprennent tous ensemble que la main de l'Éternel a fait cela, que le Saint d'Israël en est l'auteur.",
+    messagePersonnelRef: "Ésaïe 41:20",
   },
   pt: {
     eyebrow: "Você está cordialmente convidado ao",
@@ -76,5 +78,7 @@ export const translations = {
     menuPlats: "Pratos Principais",
     menuAccompagnements: "Acompanhamentos",
     menuDesserts: "Sobremesas",
+    messagePersonnel: "para que vejam, e conheçam, e considerem, e juntamente entendam que a mão do Senhor fez isso, e o Santo de Israel o criou.",
+    messagePersonnelRef: "Isaías 41:20",
   },
 };
