@@ -23,8 +23,10 @@ export const GUESTS = [
   { id: 12, prenom: "Addrielly", nom: "Leroy", password: "LEROY" },
 
   // --- Famille SENA ---
-  { id: 13, prenom: "Jeff", nom: "Sena", password: "SENA",
-    specialMessage: "Jeff, tu es bien plus qu'un organisateur pour nous — tu es un ami précieux. Merci du fond du coeur pour tout ce que tu fais pour rendre ce jour inoubliable. Ce mariage n'aurait pas été possible sans toi." },
+  {
+    id: 13, prenom: "Jeff", nom: "Sena", password: "SENA",
+    specialMessage: "Falaaa bb, pow man valeu ai por fazer meu casamento por livre e espontanea pressao kkk, ta qui o convite official quem nao tiver nao entra. vou querer 300 euros de cadeau"
+  },
   { id: 14, prenom: "Victoria", nom: "Sena", password: "SENA" },
   { id: 15, prenom: "Abigail", nom: "Sena", password: "SENA" },
   { id: 16, prenom: "Anaia", nom: "Sena", password: "SENA" },
