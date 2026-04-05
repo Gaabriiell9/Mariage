@@ -42,7 +42,7 @@ export default function Petals() {
         id: i,
         left: `${4 + Math.random() * 92}%`,
         color: PETAL_COLORS[Math.floor(Math.random() * PETAL_COLORS.length)],
-        size: 10 + Math.random() * 20,
+        size: 7 + Math.random() * 13,
         duration: 12 + Math.random() * 16,
         delay: -(Math.random() * 25),
         swayDuration: 3.5 + Math.random() * 4,

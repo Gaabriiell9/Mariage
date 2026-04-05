@@ -41,6 +41,7 @@ export default function LoginPage({ guest, onLogin, onBack }) {
   return (
     <div className="page login-bg">
       <PhotoBackground />
+      <div className="photo-overlay" aria-hidden="true" />
       <Petals />
       <div className="login-content">
         <div className={`login-card${shake ? ' shake' : ''}`}>

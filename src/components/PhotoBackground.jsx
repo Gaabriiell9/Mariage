@@ -34,14 +34,6 @@ export default function PhotoBackground() {
           }}
         />
       ))}
-      {/* Cream overlay — gives the "grisé / voilé" effect */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'rgba(250, 246, 239, 0.72)',
-        }}
-      />
     </div>
   );
 }

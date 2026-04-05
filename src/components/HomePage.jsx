@@ -93,6 +93,7 @@ export default function HomePage({ onSelectGuest }) {
   return (
     <div className="page home-bg">
       <PhotoBackground />
+      <div className="photo-overlay" aria-hidden="true" />
       <Petals />
       <div className="frame-corner frame-tl"><FrameCorner /></div>
       <div className="frame-corner frame-tr"><FrameCorner /></div>

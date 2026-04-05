@@ -113,6 +113,7 @@ export default function DetailsPage({ guest, onLogout }) {
   return (
     <div className="page details-bg">
       <PhotoBackground />
+      <div className="photo-overlay" aria-hidden="true" />
       <Petals />
 
       <div className="details-content">
