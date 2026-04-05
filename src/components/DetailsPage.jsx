@@ -219,6 +219,44 @@ function MenuSection({ t }) {
   );
 }
 
+/* ── Special Message ─────────────────────────────────────── */
+function SpecialMessage({ message }) {
+  if (!message) return null;
+  return (
+    <div style={{
+      background: 'linear-gradient(135deg, rgba(58,87,140,0.12), rgba(102,144,195,0.08))',
+      border: '1.5px solid rgba(102,144,195,0.4)',
+      borderRadius: 22,
+      padding: '28px 28px',
+      marginBottom: 28,
+      textAlign: 'center',
+      animation: 'slideInCard 0.7s ease 0.2s both',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      <div style={{
+        position: 'absolute', top: 0, left: 0, right: 0,
+        height: 3,
+        background: 'linear-gradient(to right, #3A578C, #6690C3, #3A578C)',
+      }}/>
+      <p style={{
+        fontFamily: "'Cormorant Garamond', serif",
+        fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)',
+        fontStyle: 'italic',
+        color: '#1A2E4A',
+        lineHeight: 1.9,
+        marginBottom: 16,
+      }}>"{message}"</p>
+      <span style={{
+        fontFamily: "'Dancing Script', cursive",
+        fontSize: '1.5rem',
+        color: '#3A578C',
+        filter: 'drop-shadow(0 2px 6px rgba(58,87,140,0.25))',
+      }}>Joao Gabriel & Isabella</span>
+    </div>
+  );
+}
+
 /* ── Main ─────────────────────────────────────────────────── */
 export default function DetailsPage({ guest, onLogout }) {
   const { t, lang } = useLang();
@@ -241,6 +279,8 @@ export default function DetailsPage({ guest, onLogout }) {
           </h1>
           <p className="details-welcome-msg">{t.welcomeMsg}</p>
         </div>
+
+        <SpecialMessage message={guest.specialMessage} />
 
         {/* Couple */}
         <div className="details-couple">
