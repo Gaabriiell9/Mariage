@@ -121,7 +121,9 @@ export default function DetailsPage({ guest, onLogout }) {
         {/* Welcome */}
         <div className="details-welcome">
           <p className="details-welcome-greeting">Bienvenue,</p>
-          <h1 className="details-welcome-name">{guest.prenom}</h1>
+          <h1 className="details-welcome-name">
+            {guest.prenom}{guest.nom ? ` ${guest.nom}` : ''}
+          </h1>
           <p className="details-welcome-msg">
             Nous sommes si heureux de vous compter parmi nos invités pour ce jour si spécial.
             Voici toutes les informations pour rejoindre notre célébration.
