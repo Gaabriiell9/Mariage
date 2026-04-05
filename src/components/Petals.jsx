@@ -3,16 +3,25 @@ import { useMemo } from 'react';
 const PETAL_COUNT = 22;
 
 const PETAL_COLORS = [
-  '#E8C4C8', '#D4A8A8', '#F0E4C4', '#E8D5C0',
-  '#C8D4BC', '#F0D0C0', '#DEC8B8', '#E0C8B0',
-  '#CCBCB8', '#E8D0B8', '#F4E0D0', '#D8C8D0',
+  '#C4687A',
+  '#A0522D',
+  '#B8733A',
+  '#8B4560',
+  '#C47A5A',
+  '#9B6B8A',
+  '#B85C6E',
+  '#7A5C3A',
+  '#C4845A',
+  '#8B3A5A',
+  '#A06840',
+  '#C45870',
 ];
 
 /** Ellipse petal */
 const Petal1 = ({ color, size }) => (
   <svg width={size} height={size * 1.7} viewBox="0 0 22 38" fill="none">
-    <ellipse cx="11" cy="19" rx="8.5" ry="17" fill={color} opacity="0.75" />
-    <path d="M11 4 Q17 13 11 32 Q5 13 11 4Z" fill={color} opacity="0.35" />
+    <ellipse cx="11" cy="19" rx="8.5" ry="17" fill={color} opacity="0.92" />
+    <path d="M11 4 Q17 13 11 32 Q5 13 11 4Z" fill={color} opacity="0.60" />
   </svg>
 );
 
@@ -20,7 +29,7 @@ const Petal1 = ({ color, size }) => (
 const Petal2 = ({ color, size }) => (
   <svg width={size} height={size * 1.4} viewBox="0 0 20 28" fill="none">
     <path d="M10 2 C18 2 20 10 18 18 C16 24 10 27 10 27 C10 27 4 24 2 18 C0 10 2 2 10 2Z"
-      fill={color} opacity="0.72" />
+      fill={color} opacity="0.92" />
   </svg>
 );
 
@@ -28,7 +37,7 @@ const Petal2 = ({ color, size }) => (
 const Petal3 = ({ color, size }) => (
   <svg width={size} height={size} viewBox="0 0 20 18" fill="none">
     <path d="M10 16 C10 16 1 10 1 5 C1 2.5 3 1 5.5 1 C7.5 1 9 2.5 10 4 C11 2.5 12.5 1 14.5 1 C17 1 19 2.5 19 5 C19 10 10 16 10 16Z"
-      fill={color} opacity="0.65" />
+      fill={color} opacity="0.90" />
   </svg>
 );
 
