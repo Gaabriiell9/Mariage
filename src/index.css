@@ -1,17 +1,17 @@
 :root {
-  --gold: #B8933F;
-  --gold-light: #D4B86A;
-  --gold-pale: #F0E4C4;
-  --gold-glow: rgba(184, 147, 63, 0.35);
-  --rose: #C4848B;
-  --rose-light: #E8C4C8;
-  --cream: #FAF6EF;
-  --cream-dark: #F0EAE0;
-  --dark: #2C1810;
-  --dark-mid: #5C3D2E;
-  --green: #3D5A47;
-  --white: #FFFFFF;
-  --shadow: rgba(44, 24, 16, 0.15);
+  --gold:        #3A578C;
+  --gold-light:  #6690C3;
+  --gold-pale:   #C1DDFF;
+  --gold-glow:   rgba(102, 144, 195, 0.35);
+  --rose:        #6690C3;
+  --rose-light:  #C1DDFF;
+  --cream:       #F5F9FF;
+  --cream-dark:  #E4EFFF;
+  --dark:        #1A2E4A;
+  --dark-mid:    #3A578C;
+  --green:       #3A578C;
+  --white:       #FFFFFF;
+  --shadow:      rgba(26, 46, 74, 0.15);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,7 +30,7 @@ body {
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--cream-dark); }
-::-webkit-scrollbar-thumb { background: var(--gold-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #6690C3; border-radius: 3px; }
 
 /* ============================================================
    ANIMATIONS
@@ -129,7 +129,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 2;
-  background: rgba(255, 252, 248, 0.88);
+  background: rgba(228, 239, 255, 0.82);
   pointer-events: none;
 }
 
@@ -447,7 +447,7 @@ body {
   padding: 17px;
   border: none;
   border-radius: 14px;
-  background: linear-gradient(135deg, #A07830 0%, #D4B86A 50%, #A07830 100%);
+  background: linear-gradient(135deg, #3A578C 0%, #6690C3 50%, #3A578C 100%);
   background-size: 200% auto;
   color: white;
   font-family: 'Nunito', sans-serif;
@@ -579,7 +579,7 @@ body {
 
 /* Countdown */
 .countdown-section {
-  background: rgba(255, 255, 255, 0.88);
+  background: linear-gradient(135deg, rgba(193,221,255,0.25), rgba(58,87,140,0.08));
   border: 1px solid var(--gold-pale);
   border-radius: 22px;
   padding: 32px 24px;

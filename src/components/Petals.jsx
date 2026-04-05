@@ -3,18 +3,18 @@ import { useMemo } from 'react';
 const PETAL_COUNT = 22;
 
 const PETAL_COLORS = [
-  '#C4687A',
-  '#A0522D',
-  '#B8733A',
-  '#8B4560',
-  '#C47A5A',
-  '#9B6B8A',
-  '#B85C6E',
-  '#7A5C3A',
-  '#C4845A',
-  '#8B3A5A',
-  '#A06840',
-  '#C45870',
+  '#C1DDFF',
+  '#A8CEFF',
+  '#E4EFFF',
+  '#6690C3',
+  '#B0D0F5',
+  '#D6E9FF',
+  '#8AAED8',
+  '#C8E0FF',
+  '#5A82B8',
+  '#DAEEFF',
+  '#7BA3CC',
+  '#EAF3FF',
 ];
 
 /** Ellipse petal */

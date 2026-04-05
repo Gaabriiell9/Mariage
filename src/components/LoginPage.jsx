@@ -7,10 +7,10 @@ function RingSVG() {
   return (
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
       style={{ filter: 'drop-shadow(0 4px 12px rgba(184,147,63,0.4))' }}>
-      <circle cx="20" cy="22" r="12" stroke="#B8933F" strokeWidth="2.5" fill="none"/>
-      <circle cx="20" cy="22" r="8"  stroke="#D4B86A" strokeWidth="1.2" fill="none"/>
-      <ellipse cx="20" cy="10" rx="5" ry="3.5" fill="#B8933F" opacity="0.9"/>
-      <ellipse cx="20" cy="10" rx="3" ry="2"   fill="#F0E4C4"/>
+      <circle cx="20" cy="22" r="12" stroke="#3A578C" strokeWidth="2.5" fill="none"/>
+      <circle cx="20" cy="22" r="8"  stroke="#6690C3" strokeWidth="1.2" fill="none"/>
+      <ellipse cx="20" cy="10" rx="5" ry="3.5" fill="#3A578C" opacity="0.9"/>
+      <ellipse cx="20" cy="10" rx="3" ry="2"   fill="#E4EFFF"/>
     </svg>
   );
 }

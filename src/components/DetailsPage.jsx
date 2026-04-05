@@ -131,10 +131,10 @@ const MENU = {
 
 function MenuSection({ t }) {
   const categories = [
-    { key: 'salgados',        label: t.menuSalgados,        items: MENU.salgados,        color: '#8B4560' },
-    { key: 'plats',           label: t.menuPlats,           items: MENU.plats,           color: '#7A5C3A' },
-    { key: 'accompagnements', label: t.menuAccompagnements, items: MENU.accompagnements, color: '#3D5A47' },
-    { key: 'desserts',        label: t.menuDesserts,        items: MENU.desserts,        color: '#B8933F' },
+    { key: 'salgados',        label: t.menuSalgados,        items: MENU.salgados,        color: '#3A578C' },
+    { key: 'plats',           label: t.menuPlats,           items: MENU.plats,           color: '#6690C3' },
+    { key: 'accompagnements', label: t.menuAccompagnements, items: MENU.accompagnements, color: '#5A82B8' },
+    { key: 'desserts',        label: t.menuDesserts,        items: MENU.desserts,        color: '#8AAED8' },
   ];
 
   return (
@@ -153,7 +153,7 @@ function MenuSection({ t }) {
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 28 }}>
         <div style={{
           width: 52, height: 52,
-          background: 'linear-gradient(135deg, #B8933F, #D4B86A)',
+          background: 'linear-gradient(135deg, #3A578C, #6690C3)',
           borderRadius: 14,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           boxShadow: '0 4px 14px rgba(184,147,63,0.3)',
@@ -164,7 +164,7 @@ function MenuSection({ t }) {
         <div>
           <p style={{
             fontSize: '0.72rem', textTransform: 'uppercase',
-            letterSpacing: '0.14em', color: '#B8933F',
+            letterSpacing: '0.14em', color: '#3A578C',
             fontWeight: 700, marginBottom: 4,
           }}>{t.menuSubtitle}</p>
           <h3 style={{
