@@ -3,109 +3,83 @@
 // ============================================================
 
 export const GUESTS = [
-  // --- Famille 1 : SILVA FRANCA ---
-  { id: 1, prenom: "Susana", nom: "Silva Franca", password: "SILVAFRANCA" },
-  { id: 2, prenom: "Joao", nom: "Silva Franca", password: "SILVAFRANCA" },
-  { id: 3, prenom: "Léo", nom: "De Jesus", password: "SILVAFRANCA" },
-  { id: 4, prenom: "Grazielle", nom: "Silva Franca", password: "SILVAFRANCA" },
-  { id: 5, prenom: "Clawendz", nom: "", password: "SILVAFRANCA" },
+  // --- Famille SILVA FRANCA ---
+  { id: 'leo',          prenom: 'Léo',          nom: '', password: 'SILVAFRANCA',  category: 'adulte' },
+  { id: 'grazy',        prenom: 'Grazy',         nom: '', password: 'SILVAFRANCA',  category: 'adulte' },
 
-  // --- Famille 2 : RIBEIRO BORGES / SOUZA ---
-  { id: 6, prenom: "Ricardo", nom: "Ribeiro Borges", password: "RIBEIROBORGES" },
-  { id: 7, prenom: "Miriah", nom: "Santos Souza", password: "RIBEIROBORGES" },
-  { id: 8, prenom: "Anna Luiza", nom: "Souza Fernandes", password: "RIBEIROBORGES" },
-  { id: 9, prenom: "Maria Eduarda", nom: "Souza Fernandes", password: "SOUZAFERNANDES" },
-  { id: 42, prenom: "Emones", nom: "Santos Souza", password: "SANTOSSOUZA" },
+  // --- Clawendz ---
+  { id: 'clawendz',     prenom: 'Clawendz',      nom: '', password: 'fleurismat',   category: 'adulte' },
 
-  // --- Individuel ---
-  { id: 10, prenom: "Gabriel Lionel", nom: "Ferreira Dias", password: "FERREIRADIAS" },
-  { id: 11, prenom: "Léon", nom: "Maia", password: "MAIA" },
-  { id: 12, prenom: "Addrielly", nom: "Leroy", password: "LEROY" },
-
-  // --- Famille SENA ---
-  {
-    id: 13, prenom: "Jeff", nom: "Sena", password: "SENA",
-    specialMessage: "Falaaa bb, pow man valeu ai por fazer meu casamento por livre e espontanea pressao kkk tu e Vitoria sao os unicos preto que vou deixar entrar, ta qui o convite official quem nao tiver vai ficar fora, e ta vendo essa macaquinho ta com o buxo igual tu man kkkk, ver se tu vai treinar man"
-  },
-  { id: 14, prenom: "Victoria", nom: "Sena", password: "SENA" },
-  { id: 15, prenom: "Abigail", nom: "Sena", password: "SENA" },
-  { id: 16, prenom: "Anaia", nom: "Sena", password: "SENA" },
-
-  // --- Famille LONG ---
-  { id: 17, prenom: "Robert", nom: "Long", password: "LONG" },
-  { id: 18, prenom: "Marcineide", nom: "Long", password: "LONG" },
-
-  // --- Famille SAMPAIO ---
-  { id: 19, prenom: "Wando", nom: "Sampaio", password: "SAMPAIO" },
-  { id: 20, prenom: "Joelise", nom: "Sampaio", password: "SAMPAIO" },
-  { id: 21, prenom: "Gabi", nom: "Sampaio", password: "SAMPAIO" },
-
-  // --- Famille LACERDA ---
-  { id: 22, prenom: "Juliane", nom: "Lacerda", password: "LACERDA" },
-  { id: 23, prenom: "Marcos", nom: "Lacerda", password: "LACERDA" },
-  { id: 24, prenom: "Maelly", nom: "Lacerda", password: "LACERDA" },
+  // --- Famille RIBEIRO BORGES ---
+  { id: 'ricardo',      prenom: 'Ricardo',       nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'miriah',       prenom: 'Miriah',        nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'gilmar',       prenom: 'Gilmar',        nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'amanda',       prenom: 'Amanda',        nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'odineia',      prenom: 'Odineia',       nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'bastiao',      prenom: 'Bastiao',       nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'elidiane',     prenom: 'Elidiane',      nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'josimar',      prenom: 'Josimar',       nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'josiane',      prenom: 'Josiane',       nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
 
   // --- Famille PHARAMP ---
-  { id: 25, prenom: "Audrey", nom: "Pharamp", password: "PHARAMP" },
-  { id: 26, prenom: "Roberto", nom: "", password: "PHARAMP" },
+  { id: 'audrey',       prenom: 'Audrey',        nom: '', password: 'PHARAMP',       category: 'adulte' },
+  { id: 'roberto',      prenom: 'Roberto',       nom: '', password: 'PHARAMP',       category: 'adulte' },
 
-  // --- Famille LILY ---
-  { id: 27, prenom: "Lily", nom: "", password: "LILY" },
-  { id: 28, prenom: "Francisco", nom: "", password: "LILY" },
+  // --- Famille LONG ---
+  { id: 'robert',       prenom: 'Robert',        nom: '', password: 'LONG',          category: 'adulte' },
+  { id: 'marcineid',    prenom: 'Marcineid',     nom: '', password: 'LONG',          category: 'adulte' },
 
-  // --- Famille RIBEIRO BORGES (Gilmar) ---
-  { id: 29, prenom: "Gilmar", nom: "Ribeiro Borges", password: "RIBEIROBORGES" },
-  { id: 30, prenom: "Amanda", nom: "Ribeiro Borges", password: "RIBEIROBORGES" },
-  { id: 31, prenom: "Clarisse", nom: "Ribeiro Borges", password: "RIBEIROBORGES" },
-  { id: 32, prenom: "Samuel", nom: "Ribeiro Borges", password: "RIBEIROBORGES" },
-
-  // --- Famille RIBEIRO BORGES (Odineia) ---
-  { id: 33, prenom: "Odineia", nom: "Ribeiro Borges", password: "RIBEIROBORGES" },
-  { id: 34, prenom: "Bastiao", nom: "Ribeiro Borges", password: "RIBEIROBORGES" },
-
-  // --- Famille RIBEIRO BORGES (Elidiane) ---
-  { id: 35, prenom: "Elidiane", nom: "Ribeiro Borges", password: "RIBEIROBORGES" },
-  { id: 36, prenom: "Josimar", nom: "Ribeiro Borges", password: "RIBEIROBORGES" },
-
-  // --- Famille RIBEIRO BORGES (Josiane) ---
-  { id: 37, prenom: "Josiane", nom: "Ribeiro Borges", password: "RIBEIROBORGES" },
-  { id: 38, prenom: "William", nom: "Ribeiro Borges", password: "RIBEIROBORGES" },
+  // --- Famille SAMPAIO ---
+  { id: 'wando',        prenom: 'Wando',         nom: '', password: 'SAMPAIO',       category: 'adulte' },
+  { id: 'joliese',      prenom: 'Joliese',       nom: '', password: 'SAMPAIO',       category: 'adulte' },
 
   // --- Individuels ---
-  { id: 39, prenom: "Naomie", nom: "TOSE", password: "TOSE" },
-  { id: 40, prenom: "Isabelle", nom: "Da Paixao", password: "DAPAIXAO" },
-  { id: 41, prenom: "Mathilde", nom: "Chaudruc", password: "CHAUDRUC" },
+  { id: 'susy',         prenom: 'Susy',          nom: '', password: '',              category: 'adulte' },
+  { id: 'joao',         prenom: 'Joao',          nom: '', password: '',              category: 'adulte' },
+  { id: 'bia',          prenom: 'Bia',           nom: '', password: '',              category: 'adulte' },
+  { id: 'rikelbi',      prenom: 'Rikelbi',       nom: '', password: '',              category: 'adulte' },
+  { id: 'anna-luiza',   prenom: 'Anna Luiza',    nom: '', password: '',              category: 'adulte' },
+  { id: 'maria-eduarda',prenom: 'Maria Eduarda', nom: '', password: '',              category: 'adulte' },
+  { id: 'william',      prenom: 'William',       nom: '', password: '',              category: 'adulte' },
+  { id: 'clarisse',     prenom: 'Clarisse',      nom: '', password: '',              category: 'adulte' },
+  { id: 'samuel',       prenom: 'Samuel',        nom: '', password: '',              category: 'adulte' },
+  { id: 'mathilde',     prenom: 'Mathilde',      nom: '', password: '',              category: 'adulte' },
+  { id: 'adrielly',     prenom: 'Adrielly',      nom: '', password: '',              category: 'adulte' },
+  { id: 'gabs',         prenom: 'Gabs',          nom: '', password: '',              category: 'adulte' },
+  { id: 'leon',         prenom: 'Léon',          nom: '', password: '',              category: 'adulte' },
 ];
 
 // ============================================================
-//  INFORMATIONS DU MARIAGE — À compléter avec vos vraies infos
+//  INFORMATIONS DU MARIAGE
 // ============================================================
 
 export const WEDDING_INFO = {
   marie1: "Joao Gabriel",
   marie2: "Isabella",
-  date: "Samedi 11 Juillet 2026",
-  datePT: "Sábado, 11 de Julho de 2026",
-  dateISO: "2026-07-11",
 
-  ceremonie: {
-    heure: "15h",              // ← Modifier
-    lieu: "Carbet du pk6",
-    adresse: "pk6, Guyane",          // ← Modifier si besoin
+  // Date du premier événement — utilisée pour le compte à rebours
+  dateISO: "2026-06-27",
+
+  // Date limite de réponse RSVP
+  rsvpDeadline: "15 juin 2026",
+  rsvpDeadlinePT: "15 de junho de 2026",
+
+  evenements: {
+    civil: {
+      dateLabel: "Samedi 27 juin 2026",
+      dateLabelPT: "Sábado, 27 de junho de 2026",
+      heure: "11h00",
+      lieu: "Mairie de Kourou",
+      adresse: "Kourou, Guyane",
+    },
+    diner: {
+      dateLabel: "Samedi 27 juin 2026",
+      dateLabelPT: "Sábado, 27 de junho de 2026",
+      heure: "19h00",
+      lieu: "Village Amérindien",
+      adresse: "15 rue des Caribes, 97310 Kourou",
+      dressCode: "Bleu / bleu clair",
+      dressCodePT: "Azul / azul claro",
+    },
   },
-
-  reception: {
-    heure: "16h",              // ← Modifier
-    lieu: "Carbet du PK6",
-    adresse: "PK6, Guyane",          // ← Modifier si besoin
-  },
-
-  dresscode: "Tenue de soirée élégante",  // ← Modifier si besoin
-  dresscodePT: "Traje de gala elegante",
-
-  rsvpDate: "À préciser",                 // ← Modifier
-  contact: "À préciser",                  // ← Modifier (email ou numéro)
-
-  messagePersonnel:
-    "Votre présence est le plus beau cadeau que vous puissiez nous offrir. Nous avons hâte de célébrer ce moment inoubliable avec vous.",
 };

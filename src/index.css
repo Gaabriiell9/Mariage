@@ -765,10 +765,211 @@ body {
   color: var(--dark);
 }
 
+/* ============================================================
+   RSVP PAGE
+   ============================================================ */
+
+.rsvp-scroll-wrapper {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 48px 20px 80px;
+}
+
+.rsvp-card {
+  max-width: 540px !important;
+}
+
+/* Greeting */
+.rsvp-greeting {
+  text-align: center;
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--gold-pale);
+}
+
+.rsvp-greeting-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.3rem, 4vw, 1.7rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.rsvp-deadline-text {
+  font-size: 0.86rem;
+  color: var(--dark-mid);
+}
+
+/* Questions */
+.rsvp-question {
+  margin-bottom: 30px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--gold-pale);
+}
+
+.rsvp-question-label {
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 14px;
+  line-height: 1.45;
+}
+
+/* Event detail block */
+.rsvp-event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  background: rgba(193,221,255,0.15);
+  border-radius: 12px;
+  border-left: 3px solid var(--gold-light);
+}
+
+.rsvp-event-detail-row {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.rsvp-event-detail-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-weight: 700;
+  color: var(--gold);
+  min-width: 64px;
+  flex-shrink: 0;
+}
+
+.rsvp-event-detail-value {
+  font-size: 0.88rem;
+  color: var(--dark-mid);
+  line-height: 1.4;
+}
+
+.rsvp-bold {
+  font-weight: 700;
+  color: var(--gold) !important;
+}
+
+/* Yes / No buttons */
+.rsvp-answer-group {
+  display: flex;
+  gap: 10px;
+}
+
+.rsvp-answer-btn {
+  flex: 1;
+  padding: 13px 10px;
+  border-radius: 12px;
+  border: 1.5px solid var(--gold-pale);
+  background: rgba(255,255,255,0.85);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--dark-mid);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.rsvp-answer-btn:hover {
+  border-color: var(--gold-light);
+  background: rgba(193,221,255,0.2);
+}
+
+.rsvp-answer-btn.yes.selected {
+  background: linear-gradient(135deg, rgba(58,87,140,0.12), rgba(102,144,195,0.08));
+  border-color: var(--gold);
+  color: var(--dark);
+}
+
+.rsvp-answer-btn.no.selected {
+  background: rgba(217,83,79,0.07);
+  border-color: rgba(217,83,79,0.4);
+  color: #b52b27;
+}
+
+/* ============================================================
+   THANK YOU PAGE
+   ============================================================ */
+
+.thankyou-signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.7rem;
+  color: var(--gold);
+  display: block;
+  margin: 4px 0 28px;
+  filter: drop-shadow(0 2px 6px rgba(58,87,140,0.2));
+}
+
+/* ============================================================
+   DETAILS PAGE — additions
+   ============================================================ */
+
+.details-events-header {
+  text-align: center;
+  margin-bottom: 18px;
+  margin-top: 4px;
+}
+
+.details-events-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.btn-modify {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(193,221,255,0.25);
+  border: 1.5px solid var(--gold-light);
+  border-radius: 60px;
+  padding: 11px 26px;
+  color: var(--gold);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.btn-modify:hover {
+  background: var(--gold-pale);
+  border-color: var(--gold);
+  color: var(--dark);
+}
+
 /* Responsive */
 @media (max-width: 500px) {
   .login-card { padding: 36px 24px; }
   .details-card { padding: 28px 22px; }
   .details-content { padding: 44px 14px 70px; }
   .countdown-numbers { gap: 14px; }
+  .rsvp-scroll-wrapper { padding: 32px 14px 60px; }
+  .rsvp-answer-btn { font-size: 0.8rem; padding: 11px 8px; }
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--gold-pale);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
 }

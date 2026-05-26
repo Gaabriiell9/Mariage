@@ -74,7 +74,7 @@ export default function HomePage({ onSelectGuest }) {
   const containerRef = useRef(null);
 
   const results = query.trim().length >= 1
-    ? GUESTS.filter(g => {
+    ? GUESTS.filter(g => (g.category ?? 'adulte') === 'adulte').filter(g => {
         const full = normalize(`${g.prenom} ${g.nom}`);
         const q = normalize(query.trim());
         return full.includes(q) || normalize(g.prenom).includes(q) || (g.nom && normalize(g.nom).includes(q));
