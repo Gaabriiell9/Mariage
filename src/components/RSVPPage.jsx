@@ -40,12 +40,11 @@ export default function RSVPPage({ onSubmit, guest }) {
   const { rsvpData, submitRsvp } = useRsvp();
   const W = WEDDING_INFO;
 
-  const [vientMairie, setVientMairie]     = useState(rsvpData?.vient_mairie ?? null);
-  const [vientDiner,  setVientDiner]      = useState(rsvpData?.vient_diner  ?? null);
-  const [accompagnants, setAccompagnants] = useState(rsvpData?.accompagnants ?? 0);
-  const [email,  setEmail]                = useState(rsvpData?.email ?? '');
-  const [error,  setError]                = useState('');
-  const [submitting, setSubmitting]       = useState(false);
+  const [vientMairie,   setVientMairie]   = useState(rsvpData?.vient_mairie  ?? null);
+  const [vientDiner,    setVientDiner]    = useState(rsvpData?.vient_diner   ?? null);
+  const [nombreEnfants, setNombreEnfants] = useState(rsvpData?.nombre_enfants ?? 0);
+  const [error,         setError]         = useState('');
+  const [submitting,    setSubmitting]    = useState(false);
 
   // Identité canonique depuis le guest sélectionné (pas de saisie libre)
   const prenom = guest?.prenom ?? '';
@@ -65,10 +64,11 @@ export default function RSVPPage({ onSubmit, guest }) {
       const data = await submitRsvp({
         prenom,
         nom,
-        email,
-        accompagnants,
-        vient_mairie: vientMairie,
-        vient_diner:  vientDiner,
+        accompagnants:  0,
+        email:          null,
+        nombre_enfants: nombreEnfants,
+        vient_mairie:   vientMairie,
+        vient_diner:    vientDiner,
       });
       onSubmit(data);
     } catch {
@@ -125,34 +125,20 @@ export default function RSVPPage({ onSubmit, guest }) {
             <AnswerGroup value={vientDiner} onChange={(v) => { setVientDiner(v); setError(''); }} t={t} />
           </div>
 
-          {/* Accompagnants (optionnel) */}
+          {/* Nombre d'enfants */}
           <div className="form-group">
-            <label className="form-label">{t.rsvpAccompagnants}</label>
+            <label className="form-label">{t.rsvpNombreEnfants}</label>
             <input
               type="number"
               min="0"
-              max="5"
+              max="10"
               className="form-input"
-              value={accompagnants}
+              value={nombreEnfants}
               onChange={(e) =>
-                setAccompagnants(Math.min(5, Math.max(0, parseInt(e.target.value, 10) || 0)))
+                setNombreEnfants(Math.min(10, Math.max(0, parseInt(e.target.value, 10) || 0)))
               }
             />
-            <p className="hint-text">{t.rsvpAccompagnantsHint}</p>
-          </div>
-
-          {/* Email (optionnel) */}
-          <div className="form-group">
-            <label className="form-label">{t.rsvpEmail}</label>
-            <input
-              type="email"
-              className="form-input"
-              placeholder="exemple@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              autoComplete="email"
-            />
-            <p className="hint-text">{t.rsvpEmailHint}</p>
+            <p className="hint-text">{t.rsvpNombreEnfantsHint}</p>
           </div>
 
           {error && <div className="error-msg" role="alert">{error}</div>}

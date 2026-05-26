@@ -190,7 +190,7 @@ function AdminDashboard({ onLogout }) {
         case 'status':   return dir * ((a.rsvp ? 1 : 0) - (b.rsvp ? 1 : 0));
         case 'mairie':   return dir * ((a.rsvp?.vient_mairie ? 1 : 0) - (b.rsvp?.vient_mairie ? 1 : 0));
         case 'diner':    return dir * ((a.rsvp?.vient_diner  ? 1 : 0) - (b.rsvp?.vient_diner  ? 1 : 0));
-        case 'accompagnants': return dir * ((a.rsvp?.accompagnants ?? -1) - (b.rsvp?.accompagnants ?? -1));
+        case 'nombre_enfants': return dir * ((a.rsvp?.nombre_enfants ?? -1) - (b.rsvp?.nombre_enfants ?? -1));
         case 'date': {
           const aT = a.rsvp ? new Date(a.rsvp.updated_at || a.rsvp.created_at).getTime() : 0;
           const bT = b.rsvp ? new Date(b.rsvp.updated_at || b.rsvp.created_at).getTime() : 0;
@@ -202,7 +202,7 @@ function AdminDashboard({ onLogout }) {
   }, [mergedData, filter, catFilter, search, sortCol, sortDir]);
 
   const exportCSV = useCallback(() => {
-    const header = ['Prénom', 'Nom', 'Catégorie', 'Statut', 'Mairie', 'Dîner', 'Accompagnants', 'Email', 'Date réponse'];
+    const header = ['Prénom', 'Nom', 'Catégorie', 'Statut', 'Mairie', 'Dîner', 'Enfants', 'Date réponse'];
     const rows = mergedData.map(({ guest, rsvp }) => {
       const isChild = guest.category === 'enfant';
       return [
@@ -212,8 +212,7 @@ function AdminDashboard({ onLogout }) {
         isChild ? 'N/A' : (rsvp ? 'A répondu' : 'En attente'),
         isChild ? '' : (rsvp ? (rsvp.vient_mairie ? 'Oui' : 'Non') : ''),
         isChild ? '' : (rsvp ? (rsvp.vient_diner  ? 'Oui' : 'Non') : ''),
-        isChild ? '' : (rsvp != null ? rsvp.accompagnants : ''),
-        isChild ? '' : (rsvp?.email || ''),
+        isChild ? '' : (rsvp != null ? rsvp.nombre_enfants : ''),
         isChild ? '' : (rsvp ? formatDate(rsvp.updated_at || rsvp.created_at) : ''),
       ].map(v => `"${String(v).replace(/"/g, '""')}"`).join(',');
     });
@@ -235,8 +234,8 @@ function AdminDashboard({ onLogout }) {
   const answered     = mergedData.filter(r => r.rsvp && (r.guest.category ?? 'adulte') === 'adulte').length;
   const mairie       = mergedData.filter(r => r.rsvp?.vient_mairie);
   const diner        = mergedData.filter(r => r.rsvp?.vient_diner);
-  const mAccomp      = mairie.reduce((s, r) => s + (r.rsvp.accompagnants || 0), 0);
-  const dAccomp      = diner.reduce((s, r) => s + (r.rsvp.accompagnants || 0), 0);
+  const mEnfants     = mairie.reduce((s, r) => s + (r.rsvp.nombre_enfants || 0), 0);
+  const dEnfants     = diner.reduce((s, r) => s + (r.rsvp.nombre_enfants || 0), 0);
   const pct          = nbAdultes ? Math.round((answered / nbAdultes) * 100) : 0;
 
   const s = { fontFamily: 'system-ui,-apple-system,sans-serif' };
@@ -291,8 +290,8 @@ function AdminDashboard({ onLogout }) {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: 16, marginBottom: 28 }}>
           <StatCard title="Invités" value={totalGuests} sub={`${nbAdultes} adulte${nbAdultes > 1 ? 's' : ''} / ${nbEnfants} enfant${nbEnfants > 1 ? 's' : ''}`} color="#3A578C" />
           <StatCard title="Ont répondu" value={`${answered} / ${nbAdultes}`} sub={`${pct} % des adultes`} color="#059669" />
-          <StatCard title="Viennent à la mairie" value={mairie.length} sub={`+ ${mAccomp} accompagnant${mAccomp > 1 ? 's' : ''}`} color="#D97706" />
-          <StatCard title="Viennent au dîner" value={diner.length} sub={`+ ${dAccomp} accompagnant${dAccomp > 1 ? 's' : ''}`} color="#7C3AED" />
+          <StatCard title="Viennent à la mairie" value={mairie.length} sub={`+ ${mEnfants} enfant${mEnfants > 1 ? 's' : ''} = ${mairie.length + mEnfants} pers. au total`} color="#D97706" />
+          <StatCard title="Viennent au dîner"   value={diner.length} sub={`+ ${dEnfants} enfant${dEnfants > 1 ? 's' : ''} = ${diner.length + dEnfants} pers. au total`} color="#7C3AED" />
         </div>
 
         {/* Toolbar */}
@@ -357,8 +356,7 @@ function AdminDashboard({ onLogout }) {
                     ['status', 'Statut'],
                     ['mairie', 'Mairie'],
                     ['diner', 'Dîner'],
-                    ['accompagnants', 'Acc.'],
-                    [null, 'Email'],
+                    ['nombre_enfants', 'Enfants'],
                     ['date', 'Réponse'],
                   ].map(([col, label]) => (
                     <th
@@ -375,7 +373,7 @@ function AdminDashboard({ onLogout }) {
               <tbody>
                 {displayData.length === 0 && (
                   <tr>
-                    <td colSpan={9} style={{ ...tdStyle, textAlign: 'center', color: '#9CA3AF', padding: '32px 14px' }}>
+                    <td colSpan={8} style={{ ...tdStyle, textAlign: 'center', color: '#9CA3AF', padding: '32px 14px' }}>
                       Aucun résultat
                     </td>
                   </tr>
@@ -395,10 +393,7 @@ function AdminDashboard({ onLogout }) {
                         {isChild ? <span style={{ color: '#9CA3AF' }}>—</span> : <BoolCell value={rsvp?.vient_diner} />}
                       </td>
                       <td style={{ ...tdStyle, textAlign: 'center' }}>
-                        {isChild ? <span style={{ color: '#9CA3AF' }}>—</span> : (rsvp != null ? rsvp.accompagnants : <span style={{ color: '#9CA3AF' }}>—</span>)}
-                      </td>
-                      <td style={{ ...tdStyle, color: '#6B7280', fontSize: '0.82rem' }}>
-                        {isChild ? <span style={{ color: '#D1D5DB' }}>—</span> : (rsvp?.email || <span style={{ color: '#D1D5DB' }}>—</span>)}
+                        {isChild ? <span style={{ color: '#9CA3AF' }}>—</span> : (rsvp != null ? rsvp.nombre_enfants : <span style={{ color: '#9CA3AF' }}>—</span>)}
                       </td>
                       <td style={{ ...tdStyle, color: '#6B7280', fontSize: '0.82rem', whiteSpace: 'nowrap' }}>
                         {isChild ? <span style={{ color: '#D1D5DB' }}>—</span> : (rsvp ? formatDate(rsvp.updated_at || rsvp.created_at) : <span style={{ color: '#D1D5DB' }}>—</span>)}

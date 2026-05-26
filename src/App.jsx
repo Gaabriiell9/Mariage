@@ -54,7 +54,7 @@ export default function App() {
         try {
           const { data } = await supabase
             .from('rsvp_responses')
-            .select('prenom, nom, email, accompagnants, vient_mairie, vient_diner')
+            .select('prenom, nom, email, accompagnants, nombre_enfants, vient_mairie, vient_diner')
             .eq('prenom_norm', found.prenom.toLowerCase().trim())
             .eq('nom_norm', (found.nom || '').toLowerCase().trim())
             .maybeSingle();

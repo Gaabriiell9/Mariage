@@ -88,12 +88,7 @@ function Divider() {
 
 function InfoCard({ IconComp, subtitle, title, children, delay = '0s' }) {
   return (
-    <div className="details-card" style={{
-      '--delay': delay,
-      boxShadow: '0 6px 28px rgba(58,87,140,0.10), inset 0 1px 0 rgba(255,255,255,0.85)',
-      borderColor: 'rgba(102,144,195,0.22)',
-      transition: 'box-shadow 0.25s ease, transform 0.25s ease',
-    }}>
+    <div className="details-card" style={{ '--delay': delay }}>
       <div className="details-card-header">
         <div className="details-card-icon"><IconComp /></div>
         <div>
@@ -101,14 +96,15 @@ function InfoCard({ IconComp, subtitle, title, children, delay = '0s' }) {
           <h3 className="details-card-title">{title}</h3>
         </div>
       </div>
-      <div style={{ paddingTop: 4 }}>{children}</div>
+      <MenuDivider />
+      {children}
     </div>
   );
 }
 
 function InfoRow({ label, value }) {
   return (
-    <div className="details-info-row" style={{ padding: '9px 0' }}>
+    <div className="details-info-row">
       <span className="details-info-label">{label}</span>
       <span className="details-info-value">{value}</span>
     </div>
@@ -382,11 +378,9 @@ export default function DetailsPage({ guest, onLogout, onModify }) {
             <InfoRow label={t.labelDate}    value={lang === 'pt' ? diner.dateLabelPT : diner.dateLabel} />
             <InfoRow label={t.labelHeure}   value={diner.heure} />
             <InfoRow label={t.labelAdresse} value={diner.adresse} />
-            <div style={{ marginTop: 14 }}>
-              <div className="dresscode-badge">
-                <IconDress />
-                {lang === 'pt' ? diner.dressCodePT : diner.dressCode}
-              </div>
+            <div className="dresscode-badge">
+              <IconDress />
+              {lang === 'pt' ? diner.dressCodePT : diner.dressCode}
             </div>
           </InfoCard>
         )}

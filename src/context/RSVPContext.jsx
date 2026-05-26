@@ -27,15 +27,16 @@ export function RSVPProvider({ children }) {
   }, []);
 
   // Appelé à la soumission du formulaire RSVP — upsert Supabase + sauvegarde locale
-  const submitRsvp = useCallback(async ({ prenom, nom, email, accompagnants, vient_mairie, vient_diner }) => {
+  const submitRsvp = useCallback(async ({ prenom, nom, accompagnants, email, nombre_enfants, vient_mairie, vient_diner }) => {
     const { error } = await supabase
       .from('rsvp_responses')
       .upsert(
         {
           prenom,
           nom,
-          email: email?.trim() || null,
-          accompagnants,
+          email:          email ?? null,
+          accompagnants:  accompagnants ?? 0,
+          nombre_enfants: nombre_enfants ?? 0,
           vient_mairie,
           vient_diner,
         },
@@ -47,8 +48,9 @@ export function RSVPProvider({ children }) {
     const data = {
       prenom,
       nom,
-      email: email?.trim() || null,
-      accompagnants,
+      email:          null,
+      accompagnants:  0,
+      nombre_enfants: nombre_enfants ?? 0,
       vient_mairie,
       vient_diner,
       submitted: true,

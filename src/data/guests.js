@@ -4,49 +4,48 @@
 
 export const GUESTS = [
   // --- Famille SILVA FRANCA ---
-  { id: 'leo',          prenom: 'Léo',          nom: '', password: 'SILVAFRANCA',  category: 'adulte' },
-  { id: 'grazy',        prenom: 'Grazy',         nom: '', password: 'SILVAFRANCA',  category: 'adulte' },
+  { id: 'leo', prenom: 'Léo', nom: '', password: 'DEJESUS', category: 'adulte' },
+  { id: 'grazy', prenom: 'Grazy', nom: '', password: 'SILVAFRANCA', category: 'adulte' },
 
   // --- Clawendz ---
-  { id: 'clawendz',     prenom: 'Clawendz',      nom: '', password: 'fleurismat',   category: 'adulte' },
+  { id: 'clawendz', prenom: 'Clawendz', nom: '', password: 'FLEURISMAT', category: 'adulte' },
 
   // --- Famille RIBEIRO BORGES ---
-  { id: 'ricardo',      prenom: 'Ricardo',       nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'miriah',       prenom: 'Miriah',        nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'gilmar',       prenom: 'Gilmar',        nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'amanda',       prenom: 'Amanda',        nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'odineia',      prenom: 'Odineia',       nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'bastiao',      prenom: 'Bastiao',       nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'elidiane',     prenom: 'Elidiane',      nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'josimar',      prenom: 'Josimar',       nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'josiane',      prenom: 'Josiane',       nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'ricardo', prenom: 'Ricardo', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'miriah', prenom: 'Miriah', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'gilmar', prenom: 'Gilmar', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'amanda', prenom: 'Amanda', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'odineia', prenom: 'Odineia', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'bastiao', prenom: 'Bastiao', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'elidiane', prenom: 'Elidiane', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'josimar', prenom: 'Josimar', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'josiane', prenom: 'Josiane', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
 
   // --- Famille PHARAMP ---
-  { id: 'audrey',       prenom: 'Audrey',        nom: '', password: 'PHARAMP',       category: 'adulte' },
-  { id: 'roberto',      prenom: 'Roberto',       nom: '', password: 'PHARAMP',       category: 'adulte' },
+  { id: 'audrey', prenom: 'Audrey', nom: '', password: 'PHARAMP', category: 'adulte' },
+  { id: 'roberto', prenom: 'Roberto', nom: '', password: 'WINGRADE', category: 'adulte' },
 
   // --- Famille LONG ---
-  { id: 'robert',       prenom: 'Robert',        nom: '', password: 'LONG',          category: 'adulte' },
-  { id: 'marcineid',    prenom: 'Marcineid',     nom: '', password: 'LONG',          category: 'adulte' },
+  { id: 'robert', prenom: 'Robert', nom: '', password: 'LONG', category: 'adulte' },
+  { id: 'marcineid', prenom: 'Marcineid', nom: '', password: 'LONG', category: 'adulte' },
 
   // --- Famille SAMPAIO ---
-  { id: 'wando',        prenom: 'Wando',         nom: '', password: 'SAMPAIO',       category: 'adulte' },
-  { id: 'joliese',      prenom: 'Joliese',       nom: '', password: 'SAMPAIO',       category: 'adulte' },
+  { id: 'wando', prenom: 'Wando', nom: '', password: 'SAMPAIO', category: 'adulte' },
+  { id: 'joliese', prenom: 'Joliese', nom: '', password: 'SAMPAIO', category: 'adulte' },
 
   // --- Individuels ---
-  { id: 'susy',         prenom: 'Susy',          nom: '', password: '',              category: 'adulte' },
-  { id: 'joao',         prenom: 'Joao',          nom: '', password: '',              category: 'adulte' },
-  { id: 'bia',          prenom: 'Bia',           nom: '', password: '',              category: 'adulte' },
-  { id: 'rikelbi',      prenom: 'Rikelbi',       nom: '', password: '',              category: 'adulte' },
-  { id: 'anna-luiza',   prenom: 'Anna Luiza',    nom: '', password: '',              category: 'adulte' },
-  { id: 'maria-eduarda',prenom: 'Maria Eduarda', nom: '', password: '',              category: 'adulte' },
-  { id: 'william',      prenom: 'William',       nom: '', password: '',              category: 'adulte' },
-  { id: 'clarisse',     prenom: 'Clarisse',      nom: '', password: '',              category: 'adulte' },
-  { id: 'samuel',       prenom: 'Samuel',        nom: '', password: '',              category: 'adulte' },
-  { id: 'mathilde',     prenom: 'Mathilde',      nom: '', password: '',              category: 'adulte' },
-  { id: 'adrielly',     prenom: 'Adrielly',      nom: '', password: '',              category: 'adulte' },
-  { id: 'gabs',         prenom: 'Gabs',          nom: '', password: '',              category: 'adulte' },
-  { id: 'leon',         prenom: 'Léon',          nom: '', password: '',              category: 'adulte' },
+  { id: 'susy', prenom: 'Susy', nom: '', password: 'SILVAFRANCA', category: 'adulte' },
+  { id: 'joao', prenom: 'Joao', nom: '', password: 'SILVAFRANCA', category: 'adulte' },
+  { id: 'bia', prenom: 'Bia', nom: '', password: 'VALENTINSFARIAS', category: 'adulte' },
+  { id: 'rikelbi', prenom: 'Rikelbi', nom: '', password: 'PINHEIROPEDROLEAL', category: 'adulte' },
+  { id: 'anna-luiza', prenom: 'Anna Luiza', nom: '', password: 'SOUZAFERNANDES', category: 'adulte' },
+  { id: 'maria-eduarda', prenom: 'Maria Eduarda', nom: '', password: 'SOUZAFERNANDES', category: 'adulte' },
+  { id: 'william', prenom: 'William', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'clarisse', prenom: 'Clarisse', nom: '', password: 'RIBEIROBORGES', category: 'enfants' },
+  { id: 'samuel', prenom: 'Samuel', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'mathilde', prenom: 'Mathilde', nom: '', password: 'CHAUDRUC', category: 'adulte' },
+  { id: 'adrielly', prenom: 'Adrielly', nom: '', password: 'LEROY', category: 'adulte' },
+  { id: 'leon', prenom: 'Léon', nom: '', password: 'MAIA', category: 'adulte' },
 ];
 
 // ============================================================
@@ -70,7 +69,7 @@ export const WEDDING_INFO = {
       dateLabelPT: "Sábado, 27 de junho de 2026",
       heure: "11h00",
       lieu: "Mairie de Kourou",
-      adresse: "Kourou, Guyane",
+      adresse: "Accueil Marie de Kourou",
     },
     diner: {
       dateLabel: "Samedi 27 juin 2026",
