@@ -30,7 +30,7 @@ export const GUESTS = [
 
   // --- Famille SAMPAIO ---
   { id: 'wando', prenom: 'Wando', nom: '', password: 'SAMPAIO', category: 'adulte' },
-  { id: 'joelise', prenom: 'Joelise', nom: '', password: 'SAMPAIO', category: 'adulte' },
+  { id: 'joelize', prenom: 'Joelize', nom: '', password: 'SAMPAIO', category: 'adulte' },
 
   // --- Individuels ---
   { id: 'susy', prenom: 'Susy', nom: '', password: 'SILVA', category: 'adulte' },
