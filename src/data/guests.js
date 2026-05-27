@@ -12,14 +12,13 @@ export const GUESTS = [
 
   // --- Famille RIBEIRO BORGES ---
   { id: 'ricardo', prenom: 'Ricardo', nom: '', password: 'RIBEIRO', category: 'adulte' },
-  { id: 'miriah', prenom: 'Miriah', nom: '', password: 'RIBEIRO', category: 'adulte' },
+  { id: 'miriah', prenom: 'Miriah', nom: '', password: 'SANTOS', category: 'adulte' },
   { id: 'gilmar', prenom: 'Gilmar', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'amanda', prenom: 'Amanda', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'odineia', prenom: 'Odineia', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'bastiao', prenom: 'Bastiao', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'elidiane', prenom: 'Elidiane', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'josimar', prenom: 'Josimar', nom: '', password: 'RIBEIRO', category: 'adulte' },
-  { id: 'josiane', prenom: 'Josiane', nom: '', password: 'RIBEIRO', category: 'adulte' },
 
   // --- Famille PHARAMP ---
   { id: 'audrey', prenom: 'Audrey', nom: '', password: 'PHARAMP', category: 'adulte' },
