@@ -17,7 +17,7 @@ export const GUESTS = [
   { id: 'amanda', prenom: 'Amanda', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'odineia', prenom: 'Odineia', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'bastiao', prenom: 'Bastiao', nom: '', password: 'RIBEIRO', category: 'adulte' },
-  { id: 'elidiane', prenom: 'Elidiane', nom: '', password: 'RODRIGUES', category: 'adulte' },
+  { id: 'elidiane', prenom: 'Elidiane', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'josimar', prenom: 'Josimar', nom: '', password: 'RIBEIRO', category: 'adulte' },
 
   // --- Famille PHARAMP ---
@@ -30,7 +30,7 @@ export const GUESTS = [
 
   // --- Famille SAMPAIO ---
   { id: 'wando', prenom: 'Wando', nom: '', password: 'SAMPAIO', category: 'adulte' },
-  { id: 'joelize', prenom: 'Joelize', nom: '', password: 'SAMPAIO', category: 'adulte' },
+  { id: 'joélize', prenom: 'joélize', nom: '', password: 'SAMPAIO', category: 'adulte' },
 
   // --- Individuels ---
   { id: 'susy', prenom: 'Susy', nom: '', password: 'SILVA', category: 'adulte' },
