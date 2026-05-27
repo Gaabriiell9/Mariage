@@ -68,6 +68,13 @@ export const translations = {
     rsvpSending: "Envoi en cours…",
     rsvpSubmitError: "Merci de répondre aux deux questions avant de continuer.",
     rsvpNetworkError: "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+    rsvpLaterBtn: "Répondre plus tard",
+
+    // ── Page d'attente ────────────────────────────────────────
+    waitingTitle: "À bientôt",
+    waitingMsg: "Vous avez choisi de répondre plus tard. Pensez à confirmer votre présence avant le",
+    waitingMsg2: "pour découvrir tous les détails de notre célébration.",
+    waitingRespondNow: "Répondre maintenant",
 
     // ── Page de remerciement ──────────────────────────────────
     thankYouTitle: "Merci pour votre réponse",
@@ -151,6 +158,13 @@ export const translations = {
     rsvpSending: "Enviando…",
     rsvpSubmitError: "Por favor, responda às duas perguntas antes de continuar.",
     rsvpNetworkError: "Ocorreu um erro ao enviar. Por favor, tente novamente.",
+    rsvpLaterBtn: "Responder mais tarde",
+
+    // ── Página de espera ──────────────────────────────────────
+    waitingTitle: "Até logo",
+    waitingMsg: "Você escolheu responder mais tarde. Lembre-se de confirmar sua presença antes de",
+    waitingMsg2: "para descobrir todos os detalhes da nossa celebração.",
+    waitingRespondNow: "Responder agora",
 
     // ── Página de agradecimento ───────────────────────────────
     thankYouTitle: "Obrigado pela sua resposta",

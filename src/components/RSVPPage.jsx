@@ -35,16 +35,15 @@ function EventDetailRow({ label, value, bold }) {
   );
 }
 
-export default function RSVPPage({ onSubmit, guest }) {
+export default function RSVPPage({ onSubmit, onLater, guest }) {
   const { t, lang }              = useLang();
   const { rsvpData, submitRsvp } = useRsvp();
   const W = WEDDING_INFO;
 
-  const [vientMairie,   setVientMairie]   = useState(rsvpData?.vient_mairie  ?? null);
-  const [vientDiner,    setVientDiner]    = useState(rsvpData?.vient_diner   ?? null);
-  const [nombreEnfants, setNombreEnfants] = useState(rsvpData?.nombre_enfants ?? 0);
-  const [error,         setError]         = useState('');
-  const [submitting,    setSubmitting]    = useState(false);
+  const [vientMairie, setVientMairie] = useState(rsvpData?.vient_mairie ?? null);
+  const [vientDiner,  setVientDiner]  = useState(rsvpData?.vient_diner  ?? null);
+  const [error,       setError]       = useState('');
+  const [submitting,  setSubmitting]  = useState(false);
 
   // Identité canonique depuis le guest sélectionné (pas de saisie libre)
   const prenom = guest?.prenom ?? '';
@@ -66,7 +65,7 @@ export default function RSVPPage({ onSubmit, guest }) {
         nom,
         accompagnants:  0,
         email:          null,
-        nombre_enfants: nombreEnfants,
+        nombre_enfants: 0,
         vient_mairie:   vientMairie,
         vient_diner:    vientDiner,
       });
@@ -87,8 +86,23 @@ export default function RSVPPage({ onSubmit, guest }) {
       <div className="rsvp-scroll-wrapper">
         <div className="login-card rsvp-card">
 
-          {/* Greeting + deadline */}
-          <div className="rsvp-greeting">
+          {/* Greeting + deadline + bouton plus tard */}
+          <div className="rsvp-greeting" style={{ position: 'relative' }}>
+            {onLater && (
+              <button
+                type="button"
+                onClick={onLater}
+                style={{
+                  position: 'absolute', top: 0, right: 0,
+                  background: 'none', border: 'none', cursor: 'pointer',
+                  fontSize: '0.78rem', color: 'var(--gold-light)',
+                  textDecoration: 'underline', padding: '2px 0',
+                  fontFamily: 'inherit',
+                }}
+              >
+                {t.rsvpLaterBtn}
+              </button>
+            )}
             <p className="rsvp-greeting-text">
               {t.rsvpGreeting}{prenom ? <>, <strong>{prenom}</strong></> : null}
             </p>
@@ -123,22 +137,6 @@ export default function RSVPPage({ onSubmit, guest }) {
               />
             </div>
             <AnswerGroup value={vientDiner} onChange={(v) => { setVientDiner(v); setError(''); }} t={t} />
-          </div>
-
-          {/* Nombre d'enfants */}
-          <div className="form-group">
-            <label className="form-label">{t.rsvpNombreEnfants}</label>
-            <input
-              type="number"
-              min="0"
-              max="10"
-              className="form-input"
-              value={nombreEnfants}
-              onChange={(e) =>
-                setNombreEnfants(Math.min(10, Math.max(0, parseInt(e.target.value, 10) || 0)))
-              }
-            />
-            <p className="hint-text">{t.rsvpNombreEnfantsHint}</p>
           </div>
 
           {error && <div className="error-msg" role="alert">{error}</div>}

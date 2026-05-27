@@ -396,6 +396,24 @@ export default function DetailsPage({ guest, onLogout, onModify }) {
           <span className="details-note-signature">{t.messagePersonnelRef}</span>
         </div>
 
+        <Divider />
+
+        {/* Dress Code */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 32 }}>
+          <img
+            src="/photos/dress-code.jpg"
+            alt="Dress code — palette de couleurs bleues"
+            style={{
+              maxWidth: 520,
+              width: '100%',
+              height: 'auto',
+              borderRadius: 14,
+              boxShadow: '0 6px 32px rgba(58,87,140,0.13), 0 1px 6px rgba(58,87,140,0.08)',
+              display: 'block',
+            }}
+          />
+        </div>
+
         {/* Actions */}
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
           <button className="btn-modify" onClick={onModify}>

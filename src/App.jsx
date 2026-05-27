@@ -6,12 +6,14 @@ import LoginPage from './components/LoginPage';
 import RSVPPage from './components/RSVPPage';
 import DetailsPage from './components/DetailsPage';
 import ThankYouPage from './components/ThankYouPage';
+import WaitingPage from './components/WaitingPage';
 import AdminPage from './components/AdminPage';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import { useRsvp } from './context/RSVPContext';
 
-// Pages : 'home' | 'login' | 'rsvp' | 'details' | 'thankyou'
+// Pages : 'home' | 'login' | 'rsvp' | 'waiting' | 'details' | 'thankyou'
 const SESSION_KEY = 'wedding_session';
+const laterKey    = (id) => `rsvp_later_${id}`;
 
 // Vérifie qu'un objet RSVP localStorage est structurellement cohérent
 // (anti-contournement : évite qu'un champ forgé court-circuite Supabase)
@@ -66,15 +68,16 @@ export default function App() {
             initRsvp(found.id); // recharge le contexte depuis localStorage mis à jour
             setPage(rsvp.vient_mairie || rsvp.vient_diner ? 'details' : 'thankyou');
           } else {
-            // Aucune réponse dans Supabase → RSVP obligatoire, quoi que dise localStorage
-            setPage('rsvp');
+            // Aucune réponse en base → respecter le choix "plus tard" si présent
+            setPage(localStorage.getItem(laterKey(found.id)) ? 'waiting' : 'rsvp');
           }
         } catch {
-          // Supabase indisponible (réseau) : fallback sur localStorage UNIQUEMENT si
-          // les données sont structurellement cohérentes (les deux champs sont des booléens).
-          // Un localStorage forgé avec des types incorrects sera rejeté.
+          // Supabase indisponible : fallback localStorage si données cohérentes,
+          // sinon respecter le flag "plus tard", sinon renvoyer sur RSVP.
           if (isValidRsvp(localData)) {
             setPage(localData.vient_mairie || localData.vient_diner ? 'details' : 'thankyou');
+          } else if (localStorage.getItem(laterKey(found.id))) {
+            setPage('waiting');
           } else {
             setPage('rsvp');
           }
@@ -92,14 +95,15 @@ export default function App() {
   const handleSelectGuest = (g) => { setGuest(g); setPage('login'); };
 
   const handleLogin = () => {
-    // Stocker la session pour la restauration au prochain chargement
     localStorage.setItem(SESSION_KEY, JSON.stringify({ guestId: guest.id }));
     const stored = initRsvp(guest.id);
-    setPage(
-      stored?.submitted
-        ? (stored.vient_mairie || stored.vient_diner ? 'details' : 'thankyou')
-        : 'rsvp'
-    );
+    if (stored?.submitted) {
+      setPage(stored.vient_mairie || stored.vient_diner ? 'details' : 'thankyou');
+    } else if (localStorage.getItem(laterKey(guest.id))) {
+      setPage('waiting');
+    } else {
+      setPage('rsvp');
+    }
   };
 
   const handleBack = () => { setGuest(null); setPage('home'); };
@@ -110,8 +114,16 @@ export default function App() {
 
   const handleModifyRsvp = () => setPage('rsvp');
 
+  const handleLater = () => {
+    localStorage.setItem(laterKey(guest.id), 'true');
+    setPage('waiting');
+  };
+
+  const handleRespondNow = () => setPage('rsvp');
+
   const handleLogout = () => {
     localStorage.removeItem(SESSION_KEY);
+    if (guest) localStorage.removeItem(laterKey(guest.id));
     clearRsvp();
     setGuest(null);
     setPage('home');
@@ -137,7 +149,8 @@ export default function App() {
       <LanguageSwitcher />
       {page === 'home'     && <HomePage onSelectGuest={handleSelectGuest} />}
       {page === 'login'    && guest && <LoginPage guest={guest} onLogin={handleLogin} onBack={handleBack} />}
-      {page === 'rsvp'     && guest && <RSVPPage guest={guest} onSubmit={handleRsvpSubmitted} />}
+      {page === 'rsvp'     && guest && <RSVPPage guest={guest} onSubmit={handleRsvpSubmitted} onLater={handleLater} />}
+      {page === 'waiting'  && guest && <WaitingPage guest={guest} onRespondNow={handleRespondNow} onHome={handleLogout} />}
       {page === 'details'  && guest && <DetailsPage guest={guest} onLogout={handleLogout} onModify={handleModifyRsvp} />}
       {page === 'thankyou' && guest && <ThankYouPage guest={guest} onHome={handleLogout} onModify={handleModifyRsvp} />}
     </>
