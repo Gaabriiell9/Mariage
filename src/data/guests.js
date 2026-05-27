@@ -17,7 +17,7 @@ export const GUESTS = [
   { id: 'amanda', prenom: 'Amanda', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'odineia', prenom: 'Odineia', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'bastiao', prenom: 'Bastiao', nom: '', password: 'RIBEIRO', category: 'adulte' },
-  { id: 'elidiane', prenom: 'Elidiane', nom: '', password: 'RIBEIRO', category: 'adulte' },
+  { id: 'elidiane', prenom: 'Elidiane', nom: '', password: 'RODRIGUES', category: 'adulte' },
   { id: 'josimar', prenom: 'Josimar', nom: '', password: 'RIBEIRO', category: 'adulte' },
 
   // --- Famille PHARAMP ---
