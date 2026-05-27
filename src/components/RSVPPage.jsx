@@ -87,22 +87,7 @@ export default function RSVPPage({ onSubmit, onLater, guest }) {
         <div className="login-card rsvp-card">
 
           {/* Greeting + deadline + bouton plus tard */}
-          <div className="rsvp-greeting" style={{ position: 'relative' }}>
-            {onLater && (
-              <button
-                type="button"
-                onClick={onLater}
-                style={{
-                  position: 'absolute', top: 0, right: 0,
-                  background: 'none', border: 'none', cursor: 'pointer',
-                  fontSize: '0.78rem', color: 'var(--gold-light)',
-                  textDecoration: 'underline', padding: '2px 0',
-                  fontFamily: 'inherit',
-                }}
-              >
-                {t.rsvpLaterBtn}
-              </button>
-            )}
+          <div className="rsvp-greeting">
             <p className="rsvp-greeting-text">
               {t.rsvpGreeting}{prenom ? <>, <strong>{prenom}</strong></> : null}
             </p>
@@ -110,6 +95,22 @@ export default function RSVPPage({ onSubmit, onLater, guest }) {
               {t.rsvpDeadlineMsg}{' '}
               <strong>{lang === 'pt' ? W.rsvpDeadlinePT : W.rsvpDeadline}</strong>
             </p>
+            {onLater && (
+              <button
+                type="button"
+                onClick={onLater}
+                style={{
+                  display: 'block',
+                  margin: '10px auto 0',
+                  background: 'none', border: 'none', cursor: 'pointer',
+                  fontSize: '0.78rem', color: 'var(--gold-light)',
+                  textDecoration: 'underline', padding: 0,
+                  fontFamily: 'inherit',
+                }}
+              >
+                {t.rsvpLaterBtn}
+              </button>
+            )}
           </div>
 
           {/* Q1 — Cérémonie civile */}
