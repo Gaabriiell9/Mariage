@@ -5,21 +5,21 @@
 export const GUESTS = [
   // --- Famille SILVA FRANCA ---
   { id: 'leo', prenom: 'Léo', nom: '', password: 'DEJESUS', category: 'adulte' },
-  { id: 'grazy', prenom: 'Grazy', nom: '', password: 'SILVAFRANCA', category: 'adulte' },
+  { id: 'grazy', prenom: 'Grazy', nom: '', password: 'SILVA', category: 'adulte' },
 
   // --- Clawendz ---
   { id: 'clawendz', prenom: 'Clawendz', nom: '', password: 'FLEURISMAT', category: 'adulte' },
 
   // --- Famille RIBEIRO BORGES ---
-  { id: 'ricardo', prenom: 'Ricardo', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'miriah', prenom: 'Miriah', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'gilmar', prenom: 'Gilmar', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'amanda', prenom: 'Amanda', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'odineia', prenom: 'Odineia', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'bastiao', prenom: 'Bastiao', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'elidiane', prenom: 'Elidiane', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'josimar', prenom: 'Josimar', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'josiane', prenom: 'Josiane', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'ricardo', prenom: 'Ricardo', nom: '', password: 'RIBEIRO', category: 'adulte' },
+  { id: 'miriah', prenom: 'Miriah', nom: '', password: 'RIBEIRO', category: 'adulte' },
+  { id: 'gilmar', prenom: 'Gilmar', nom: '', password: 'RIBEIRO', category: 'adulte' },
+  { id: 'amanda', prenom: 'Amanda', nom: '', password: 'RIBEIRO', category: 'adulte' },
+  { id: 'odineia', prenom: 'Odineia', nom: '', password: 'RIBEIRO', category: 'adulte' },
+  { id: 'bastiao', prenom: 'Bastiao', nom: '', password: 'RIBEIRO', category: 'adulte' },
+  { id: 'elidiane', prenom: 'Elidiane', nom: '', password: 'RIBEIRO', category: 'adulte' },
+  { id: 'josimar', prenom: 'Josimar', nom: '', password: 'RIBEIRO', category: 'adulte' },
+  { id: 'josiane', prenom: 'Josiane', nom: '', password: 'RIBEIRO', category: 'adulte' },
 
   // --- Famille PHARAMP ---
   { id: 'audrey', prenom: 'Audrey', nom: '', password: 'PHARAMP', category: 'adulte' },
@@ -34,18 +34,36 @@ export const GUESTS = [
   { id: 'joliese', prenom: 'Joliese', nom: '', password: 'SAMPAIO', category: 'adulte' },
 
   // --- Individuels ---
-  { id: 'susy', prenom: 'Susy', nom: '', password: 'SILVAFRANCA', category: 'adulte' },
-  { id: 'joao', prenom: 'Joao', nom: '', password: 'SILVAFRANCA', category: 'adulte' },
-  { id: 'bia', prenom: 'Bia', nom: '', password: 'VALENTINSFARIAS', category: 'adulte' },
-  { id: 'rikelbi', prenom: 'Rikelbi', nom: '', password: 'PINHEIROPEDROLEAL', category: 'adulte' },
-  { id: 'anna-luiza', prenom: 'Anna Luiza', nom: '', password: 'SOUZAFERNANDES', category: 'adulte' },
-  { id: 'maria-eduarda', prenom: 'Maria Eduarda', nom: '', password: 'SOUZAFERNANDES', category: 'adulte' },
-  { id: 'william', prenom: 'William', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
-  { id: 'clarisse', prenom: 'Clarisse', nom: '', password: 'RIBEIROBORGES', category: 'enfants' },
-  { id: 'samuel', prenom: 'Samuel', nom: '', password: 'RIBEIROBORGES', category: 'adulte' },
+  { id: 'susy', prenom: 'Susy', nom: '', password: 'SILVA', category: 'adulte' },
+  { id: 'joao', prenom: 'Joao', nom: '', password: 'SILVA', category: 'adulte' },
+  { id: 'bia', prenom: 'Bia', nom: '', password: 'VALENTINS', category: 'adulte' },
+  { id: 'rikelbi', prenom: 'Rikelbi', nom: '', password: 'PINHEIRo', category: 'adulte' },
+  { id: 'anna-luiza', prenom: 'Anna Luiza', nom: '', password: 'SOUZA', category: 'adulte' },
+  { id: 'maria-eduarda', prenom: 'Maria Eduarda', nom: '', password: 'SOUZA', category: 'adulte' },
+  { id: 'william', prenom: 'William', nom: '', password: 'RIBEIRO', category: 'adulte' },
+  { id: 'clarisse', prenom: 'Clarisse', nom: '', password: 'RIBEIRO', category: 'adulte' },
+  { id: 'samuel', prenom: 'Samuel', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'mathilde', prenom: 'Mathilde', nom: '', password: 'CHAUDRUC', category: 'adulte' },
   { id: 'adrielly', prenom: 'Adrielly', nom: '', password: 'LEROY', category: 'adulte' },
   { id: 'leon', prenom: 'Léon', nom: '', password: 'MAIA', category: 'adulte' },
+
+  // --- Nouveaux adultes ---
+  { id: 'juliane', prenom: 'Juliane', nom: 'Lacerda', password: 'lacerda', category: 'adulte' },
+  { id: 'marcos', prenom: 'Marcos', nom: 'Lacerda', password: 'lacerda', category: 'adulte' },
+  { id: 'igo', prenom: 'Igo', nom: 'Rosa', password: 'rosa', category: 'adulte' },
+  { id: 'dalila', prenom: 'Dalila', nom: 'Santos', password: 'santos', category: 'adulte' },
+  { id: 'bruno', prenom: 'Bruno', nom: 'Ayanne', password: 'ayanne', category: 'adulte' },
+
+  // --- Enfants (admin uniquement, non cherchables sur HomePage) ---
+  { id: 'naely', prenom: 'Naely', nom: '', password: '', category: 'enfant' },
+  { id: 'clara', prenom: 'Clara', nom: '', password: '', category: 'enfant' },
+  { id: 'davi', prenom: 'Davi', nom: '', password: '', category: 'enfant' },
+  { id: 'stan', prenom: 'Stan', nom: '', password: '', category: 'enfant' },
+  { id: 'isabela', prenom: 'Isabela', nom: '', password: '', category: 'enfant' },
+  { id: 'selena', prenom: 'Selena', nom: '', password: '', category: 'enfant' },
+  { id: 'thalia', prenom: 'Thalia', nom: '', password: '', category: 'enfant' },
+  { id: 'elise', prenom: 'Elise', nom: '', password: '', category: 'enfant' },
+  { id: 'maely', prenom: 'Maely', nom: '', password: '', category: 'enfant' },
 ];
 
 // ============================================================
