@@ -2,8 +2,8 @@ export const translations = {
   fr: {
     eyebrow: "Vous êtes chaleureusement invité à",
     title: "Notre Mariage",
-    description: "Recherchez votre prénom ou votre nom pour accéder à votre invitation personnalisée et découvrir tous les détails de notre célébration.",
-    searchPlaceholder: "Rechercher votre prénom ou nom...",
+    description: "Recherchez votre prénom pour accéder à votre invitation personnalisée et découvrir tous les détails de notre célébration.",
+    searchPlaceholder: "Rechercher votre prénom...",
     noResult: "Aucun invité trouvé — vérifiez l'orthographe",
     loginWelcome: "Bienvenue !",
     loginSubtitle: "Confirmez votre identité pour accéder à votre invitation personnalisée",
@@ -94,8 +94,8 @@ export const translations = {
   pt: {
     eyebrow: "Você está cordialmente convidado ao",
     title: "Nosso Casamento",
-    description: "Pesquise seu primeiro ou último nome para acessar seu convite personalizado e descobrir todos os detalhes da nossa celebração.",
-    searchPlaceholder: "Pesquisar seu nome ou sobrenome...",
+    description: "Pesquise seu primeiro nome para acessar seu convite personalizado e descobrir todos os detalhes da nossa celebração.",
+    searchPlaceholder: "Pesquisar seu primeiro nome...",
     noResult: "Nenhum convidado encontrado — verifique a ortografia",
     loginWelcome: "Bem-vindo!",
     loginSubtitle: "Confirme sua identidade para acessar seu convite personalizado",

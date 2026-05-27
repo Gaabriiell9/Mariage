@@ -75,9 +75,8 @@ export default function HomePage({ onSelectGuest }) {
 
   const results = query.trim().length >= 1
     ? GUESTS.filter(g => (g.category ?? 'adulte') === 'adulte').filter(g => {
-        const full = normalize(`${g.prenom} ${g.nom}`);
         const q = normalize(query.trim());
-        return full.includes(q) || normalize(g.prenom).includes(q) || (g.nom && normalize(g.nom).includes(q));
+        return normalize(g.prenom).includes(q);
       }).slice(0, 9)
     : [];
 
@@ -134,7 +133,6 @@ export default function HomePage({ onSelectGuest }) {
                   <span className="search-result-icon"><DiamondSVG /></span>
                   <span className="search-result-name">
                     <HighlightMatch text={guest.prenom} query={query}/>
-                    {guest.nom ? <> <HighlightMatch text={guest.nom} query={query}/></> : null}
                   </span>
                 </div>
               )) : (
