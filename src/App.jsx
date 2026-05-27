@@ -94,21 +94,48 @@ export default function App() {
 
   const handleSelectGuest = (g) => { setGuest(g); setPage('login'); };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     localStorage.setItem(SESSION_KEY, JSON.stringify({ guestId: guest.id }));
-    const stored = initRsvp(guest.id);
-    if (stored?.submitted) {
-      setPage(stored.vient_mairie || stored.vient_diner ? 'details' : 'thankyou');
-    } else if (localStorage.getItem(laterKey(guest.id))) {
-      setPage('waiting');
-    } else {
-      setPage('rsvp');
+    const localData = initRsvp(guest.id);
+    setInit(true); // spinner pendant la vérification Supabase
+
+    try {
+      const { data } = await supabase
+        .from('rsvp_responses')
+        .select('prenom, nom, email, accompagnants, nombre_enfants, vient_mairie, vient_diner')
+        .eq('prenom_norm', guest.prenom.toLowerCase().trim())
+        .eq('nom_norm', (guest.nom || '').toLowerCase().trim())
+        .maybeSingle();
+
+      if (data) {
+        // Supabase confirme une vraie réponse → source de vérité
+        const rsvp = { ...data, submitted: true };
+        localStorage.setItem(`rsvp_${guest.id}`, JSON.stringify(rsvp));
+        initRsvp(guest.id);
+        setPage(rsvp.vient_mairie || rsvp.vient_diner ? 'details' : 'thankyou');
+      } else {
+        // Aucune réponse en base → respecter le flag "plus tard" si présent
+        setPage(localStorage.getItem(laterKey(guest.id)) ? 'waiting' : 'rsvp');
+      }
+    } catch {
+      // Supabase indisponible : fallback localStorage si données cohérentes
+      if (isValidRsvp(localData)) {
+        setPage(localData.vient_mairie || localData.vient_diner ? 'details' : 'thankyou');
+      } else if (localStorage.getItem(laterKey(guest.id))) {
+        setPage('waiting');
+      } else {
+        setPage('rsvp');
+      }
+    } finally {
+      setInit(false);
     }
   };
 
   const handleBack = () => { setGuest(null); setPage('home'); };
 
   const handleRsvpSubmitted = (data) => {
+    // Le flag "plus tard" est résolu : l'invité a maintenant réellement répondu
+    if (guest) localStorage.removeItem(laterKey(guest.id));
     setPage(data.vient_mairie || data.vient_diner ? 'details' : 'thankyou');
   };
 
@@ -123,7 +150,9 @@ export default function App() {
 
   const handleLogout = () => {
     localStorage.removeItem(SESSION_KEY);
-    if (guest) localStorage.removeItem(laterKey(guest.id));
+    // Le flag "plus tard" (laterKey) est intentionnellement conservé :
+    // il doit survivre à la déconnexion pour que l'invité retombe sur WaitingPage à la reconnexion.
+    // Il n'est effacé que lors d'une soumission RSVP réelle (handleRsvpSubmitted).
     clearRsvp();
     setGuest(null);
     setPage('home');
