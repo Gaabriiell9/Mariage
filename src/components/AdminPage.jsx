@@ -77,8 +77,8 @@ function AdminLogin({ onAuth }) {
   };
 
   return (
-    <div style={{ minHeight:'100vh', background:'#f9fafb', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:'system-ui,-apple-system,sans-serif' }}>
-      <div style={{ background:'white', borderRadius:16, padding:'48px 44px', boxShadow:'0 4px 24px rgba(0,0,0,0.08)', width:'100%', maxWidth:380, animation: shake ? 'shake 0.5s ease' : 'none' }}>
+    <div className="admin-login-outer">
+      <div className="admin-login-card" style={{ animation: shake ? 'shake 0.5s ease' : 'none' }}>
 
         <div style={{ textAlign:'center', marginBottom:32 }}>
           <div style={{ width:48, height:48, background:'linear-gradient(135deg,#3A578C,#6690C3)', borderRadius:12, margin:'0 auto 16px', display:'flex', alignItems:'center', justifyContent:'center' }}>
@@ -103,7 +103,7 @@ function AdminLogin({ onAuth }) {
             style={{ width:'100%', padding:'12px 14px', border:`1.5px solid ${err ? '#EF4444' : '#D1D5DB'}`, borderRadius:8, fontSize:'1rem', outline:'none', boxSizing:'border-box', fontFamily:'inherit' }}
           />
           {err && <p style={{ color:'#EF4444', fontSize:'0.82rem', marginTop:6, marginBottom:0 }}>{err}</p>}
-          <button type="submit" style={{ width:'100%', marginTop:18, padding:'13px', background:'linear-gradient(135deg,#3A578C,#6690C3)', border:'none', borderRadius:8, color:'white', fontWeight:600, fontSize:'0.95rem', cursor:'pointer', fontFamily:'inherit' }}>
+          <button type="submit" style={{ width:'100%', marginTop:18, padding:'13px', background:'linear-gradient(135deg,#3A578C,#6690C3)', border:'none', borderRadius:8, color:'white', fontWeight:600, fontSize:'0.95rem', cursor:'pointer', fontFamily:'inherit', minHeight:44 }}>
             Se connecter
           </button>
         </form>
@@ -115,7 +115,7 @@ function AdminLogin({ onAuth }) {
 /* ── Stat Card ──────────────────────────────────────────────── */
 function StatCard({ title, value, sub, color }) {
   return (
-    <div style={{ background:'white', borderRadius:12, padding:'20px 22px', boxShadow:'0 1px 4px rgba(0,0,0,0.06)', borderTop:`3px solid ${color}` }}>
+    <div className="admin-stat-card" style={{ borderTop:`3px solid ${color}` }}>
       <p style={{ fontSize:'0.72rem', fontWeight:600, textTransform:'uppercase', letterSpacing:'0.08em', color:'#6B7280', margin:'0 0 8px' }}>{title}</p>
       <p style={{ fontSize:'1.75rem', fontWeight:700, color:'#111827', lineHeight:1, margin:0 }}>{value}</p>
       <p style={{ fontSize:'0.8rem', color:'#6B7280', margin:'4px 0 0' }}>{sub}</p>
@@ -160,10 +160,8 @@ function AdminDashboard({ onLogout }) {
 
   const displayData = useMemo(() => {
     let d = [...mergedData];
-    // Filtre statut RSVP (seulement pertinent pour adultes)
     if (filter === 'answered') d = d.filter(r => r.rsvp);
     if (filter === 'pending')  d = d.filter(r => !r.rsvp && (r.guest.category ?? 'adulte') === 'adulte');
-    // Filtre catégorie
     if (catFilter === 'adulte') d = d.filter(r => (r.guest.category ?? 'adulte') === 'adulte');
     if (catFilter === 'enfant') d = d.filter(r => r.guest.category === 'enfant');
     if (search.trim()) {
@@ -234,8 +232,6 @@ function AdminDashboard({ onLogout }) {
   const diner        = mergedData.filter(r => r.rsvp?.vient_diner);
   const pct          = nbAdultes ? Math.round((answered / nbAdultes) * 100) : 0;
 
-  const s = { fontFamily: 'system-ui,-apple-system,sans-serif' };
-
   const thStyle = (col) => ({
     padding: '12px 14px',
     textAlign: 'left',
@@ -254,36 +250,43 @@ function AdminDashboard({ onLogout }) {
   const tdStyle = { padding: '11px 14px', fontSize: '0.88rem', color: '#374151', borderBottom: '1px solid #F3F4F6', verticalAlign: 'middle' };
 
   return (
-    <div style={{ ...s, minHeight: '100vh', background: '#f3f4f6' }}>
+    <div className="admin-layout">
 
       {/* Header */}
-      <div style={{ background: 'white', borderBottom: '1px solid #E5E7EB', padding: '0 24px', position: 'sticky', top: 0, zIndex: 100 }}>
-        <div style={{ maxWidth: 1300, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 60 }}>
-          <div>
-            <span style={{ fontWeight: 700, fontSize: '1rem', color: '#111827' }}>Joao Gabriel &amp; Isabella</span>
-            <span style={{ color: '#9CA3AF', margin: '0 10px' }}>·</span>
-            <span style={{ fontSize: '0.82rem', color: '#6B7280' }}>Date limite RSVP : <strong>15 juin 2026</strong></span>
+      <header className="admin-header">
+        <div className="admin-header-inner">
+          <div className="admin-header-info">
+            <span className="admin-header-name">Joao Gabriel &amp; Isabella</span>
+            <span className="admin-header-sep" aria-hidden="true">·</span>
+            <span className="admin-header-deadline">Date limite RSVP : <strong>15 juin 2026</strong></span>
           </div>
-          <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-            <button onClick={loadData} title="Actualiser" style={{ background: 'none', border: '1px solid #E5E7EB', borderRadius: 8, padding: '6px 14px', fontSize: '0.82rem', color: '#374151', cursor: 'pointer' }}>
+          <div className="admin-header-actions">
+            <button
+              onClick={loadData}
+              title="Actualiser"
+              style={{ background:'none', border:'1px solid #E5E7EB', borderRadius:8, padding:'6px 14px', fontSize:'0.82rem', color:'#374151', cursor:'pointer', minHeight:36, fontFamily:'inherit' }}
+            >
               ↻ Actualiser
             </button>
-            <button onClick={onLogout} style={{ background: '#F3F4F6', border: 'none', borderRadius: 8, padding: '7px 16px', fontSize: '0.82rem', color: '#374151', cursor: 'pointer', fontWeight: 600 }}>
+            <button
+              onClick={onLogout}
+              style={{ background:'#F3F4F6', border:'none', borderRadius:8, padding:'7px 16px', fontSize:'0.82rem', color:'#374151', cursor:'pointer', fontWeight:600, minHeight:36, fontFamily:'inherit' }}
+            >
               Déconnexion
             </button>
           </div>
         </div>
-      </div>
+      </header>
 
-      <div style={{ maxWidth: 1300, margin: '0 auto', padding: '28px 24px 60px' }}>
+      <div className="admin-content">
 
         {/* Title */}
-        <h1 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#111827', margin: '0 0 24px' }}>
+        <h1 style={{ fontSize:'1.4rem', fontWeight:700, color:'#111827', margin:'0 0 24px' }}>
           Tableau de bord
         </h1>
 
         {/* Stats */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: 16, marginBottom: 28 }}>
+        <div className="admin-stats-grid">
           <StatCard title="Invités" value={totalGuests} sub={`${nbAdultes} adulte${nbAdultes > 1 ? 's' : ''} / ${nbEnfants} enfant${nbEnfants > 1 ? 's' : ''}`} color="#3A578C" />
           <StatCard title="Ont répondu" value={`${answered} / ${nbAdultes}`} sub={`${pct} % des adultes`} color="#059669" />
           <StatCard title="Viennent à la mairie" value={mairie.length} sub={`adulte${mairie.length !== 1 ? 's' : ''} confirmé${mairie.length !== 1 ? 's' : ''}`} color="#D97706" />
@@ -291,43 +294,46 @@ function AdminDashboard({ onLogout }) {
         </div>
 
         {/* Toolbar */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+        <div className="admin-toolbar">
+          <div className="admin-toolbar-filters">
             {[['all', 'Tous'], ['answered', 'A répondu'], ['pending', 'En attente']].map(([val, label]) => (
               <button key={val} onClick={() => setFilter(val)} style={{
-                padding: '6px 16px', borderRadius: 8,
+                padding: '6px 16px', borderRadius: 8, minHeight: 36,
                 border: filter === val ? '1.5px solid #3A578C' : '1px solid #E5E7EB',
                 background: filter === val ? '#EEF2FF' : 'white',
                 color: filter === val ? '#3A578C' : '#374151',
                 fontWeight: filter === val ? 700 : 400,
-                fontSize: '0.84rem', cursor: 'pointer',
+                fontSize: '0.84rem', cursor: 'pointer', fontFamily: 'inherit',
               }}>
                 {label}
               </button>
             ))}
-            <span style={{ borderLeft: '1px solid #E5E7EB', margin: '4px 2px' }} />
+            <span style={{ borderLeft: '1px solid #E5E7EB', margin: '4px 2px', alignSelf: 'stretch' }} />
             {[['all', 'Tous'], ['adulte', 'Adultes'], ['enfant', 'Enfants']].map(([val, label]) => (
               <button key={val} onClick={() => setCatFilter(val)} style={{
-                padding: '6px 16px', borderRadius: 8,
+                padding: '6px 16px', borderRadius: 8, minHeight: 36,
                 border: catFilter === val ? '1.5px solid #B45309' : '1px solid #E5E7EB',
                 background: catFilter === val ? '#FEF3C7' : 'white',
                 color: catFilter === val ? '#B45309' : '#374151',
                 fontWeight: catFilter === val ? 700 : 400,
-                fontSize: '0.84rem', cursor: 'pointer',
+                fontSize: '0.84rem', cursor: 'pointer', fontFamily: 'inherit',
               }}>
                 {label}
               </button>
             ))}
           </div>
-          <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+          <div className="admin-toolbar-right">
             <input
               type="text"
+              className="admin-search"
               placeholder="Rechercher…"
               value={search}
               onChange={e => setSearch(e.target.value)}
-              style={{ padding: '7px 12px', border: '1px solid #D1D5DB', borderRadius: 8, fontSize: '0.86rem', outline: 'none', width: 180 }}
             />
-            <button onClick={exportCSV} style={{ padding: '7px 16px', background: '#3A578C', color: 'white', border: 'none', borderRadius: 8, fontSize: '0.84rem', fontWeight: 600, cursor: 'pointer' }}>
+            <button
+              onClick={exportCSV}
+              style={{ padding:'7px 16px', background:'#3A578C', color:'white', border:'none', borderRadius:8, fontSize:'0.84rem', fontWeight:600, cursor:'pointer', fontFamily:'inherit', minHeight:36, whiteSpace:'nowrap' }}
+            >
               ↓ Export CSV
             </button>
           </div>
@@ -335,14 +341,14 @@ function AdminDashboard({ onLogout }) {
 
         {/* Table */}
         {loadErr ? (
-          <div style={{ background: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: 8, padding: '16px 20px', color: '#B91C1C', fontSize: '0.88rem' }}>
+          <div style={{ background:'#FEF2F2', border:'1px solid #FCA5A5', borderRadius:8, padding:'16px 20px', color:'#B91C1C', fontSize:'0.88rem' }}>
             Erreur Supabase : {loadErr}
           </div>
         ) : loading ? (
-          <div style={{ textAlign: 'center', padding: 60, color: '#6B7280' }}>Chargement…</div>
+          <div style={{ textAlign:'center', padding:60, color:'#6B7280' }}>Chargement…</div>
         ) : (
-          <div style={{ overflowX: 'auto', borderRadius: 12, boxShadow: '0 1px 4px rgba(0,0,0,0.06)', background: 'white' }}>
-            <table style={{ borderCollapse: 'collapse', width: '100%', minWidth: 760 }}>
+          <div className="admin-table-wrapper">
+            <table style={{ borderCollapse:'collapse', width:'100%', minWidth:760 }}>
               <thead>
                 <tr>
                   {[
@@ -354,13 +360,9 @@ function AdminDashboard({ onLogout }) {
                     ['diner', 'Dîner'],
                     ['date', 'Réponse'],
                   ].map(([col, label]) => (
-                    <th
-                      key={label}
-                      style={thStyle(col)}
-                      onClick={col ? () => handleSort(col) : undefined}
-                    >
+                    <th key={label} style={thStyle(col)} onClick={() => handleSort(col)}>
                       {label}
-                      {col && <SortIcon col={col} sortCol={sortCol} sortDir={sortDir} />}
+                      <SortIcon col={col} sortCol={sortCol} sortDir={sortDir} />
                     </th>
                   ))}
                 </tr>
@@ -368,7 +370,7 @@ function AdminDashboard({ onLogout }) {
               <tbody>
                 {displayData.length === 0 && (
                   <tr>
-                    <td colSpan={7} style={{ ...tdStyle, textAlign: 'center', color: '#9CA3AF', padding: '32px 14px' }}>
+                    <td colSpan={7} style={{ ...tdStyle, textAlign:'center', color:'#9CA3AF', padding:'32px 14px' }}>
                       Aucun résultat
                     </td>
                   </tr>
@@ -377,25 +379,25 @@ function AdminDashboard({ onLogout }) {
                   const isChild = guest.category === 'enfant';
                   return (
                     <tr key={guest.id} style={{ background: i % 2 === 0 ? 'white' : '#FAFAFA' }}>
-                      <td style={{ ...tdStyle, fontWeight: 600 }}>{guest.prenom}</td>
-                      <td style={tdStyle}>{guest.nom || <span style={{ color: '#9CA3AF' }}>—</span>}</td>
+                      <td style={{ ...tdStyle, fontWeight:600 }}>{guest.prenom}</td>
+                      <td style={tdStyle}>{guest.nom || <span style={{ color:'#9CA3AF' }}>—</span>}</td>
                       <td style={tdStyle}><CategoryBadge category={guest.category ?? 'adulte'} /></td>
                       <td style={tdStyle}><StatusBadge hasRsvp={!!rsvp} isChild={isChild} /></td>
-                      <td style={{ ...tdStyle, textAlign: 'center' }}>
-                        {isChild ? <span style={{ color: '#9CA3AF' }}>—</span> : <BoolCell value={rsvp?.vient_mairie} />}
+                      <td style={{ ...tdStyle, textAlign:'center' }}>
+                        {isChild ? <span style={{ color:'#9CA3AF' }}>—</span> : <BoolCell value={rsvp?.vient_mairie} />}
                       </td>
-                      <td style={{ ...tdStyle, textAlign: 'center' }}>
-                        {isChild ? <span style={{ color: '#9CA3AF' }}>—</span> : <BoolCell value={rsvp?.vient_diner} />}
+                      <td style={{ ...tdStyle, textAlign:'center' }}>
+                        {isChild ? <span style={{ color:'#9CA3AF' }}>—</span> : <BoolCell value={rsvp?.vient_diner} />}
                       </td>
-                      <td style={{ ...tdStyle, color: '#6B7280', fontSize: '0.82rem', whiteSpace: 'nowrap' }}>
-                        {isChild ? <span style={{ color: '#D1D5DB' }}>—</span> : (rsvp ? formatDate(rsvp.updated_at || rsvp.created_at) : <span style={{ color: '#D1D5DB' }}>—</span>)}
+                      <td style={{ ...tdStyle, color:'#6B7280', fontSize:'0.82rem', whiteSpace:'nowrap' }}>
+                        {isChild ? <span style={{ color:'#D1D5DB' }}>—</span> : (rsvp ? formatDate(rsvp.updated_at || rsvp.created_at) : <span style={{ color:'#D1D5DB' }}>—</span>)}
                       </td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
-            <div style={{ padding: '10px 16px', borderTop: '1px solid #F3F4F6', fontSize: '0.78rem', color: '#9CA3AF' }}>
+            <div style={{ padding:'10px 16px', borderTop:'1px solid #F3F4F6', fontSize:'0.78rem', color:'#9CA3AF' }}>
               {displayData.length} invité{displayData.length > 1 ? 's' : ''} affiché{displayData.length > 1 ? 's' : ''}
               {displayData.length !== totalGuests && ` (sur ${totalGuests} au total)`}
             </div>

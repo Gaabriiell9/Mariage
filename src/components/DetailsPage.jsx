@@ -385,17 +385,6 @@ export default function DetailsPage({ guest, onLogout, onModify }) {
           </InfoCard>
         )}
 
-        {/* Menu (uniquement pour les invités au dîner) */}
-        {rsvpData?.vient_diner && <MenuSection t={t} />}
-
-        <Divider />
-
-        {/* Message biblique */}
-        <div className="details-note">
-          <p className="details-note-text">« {t.messagePersonnel} »</p>
-          <span className="details-note-signature">{t.messagePersonnelRef}</span>
-        </div>
-
         <Divider />
 
         {/* Dress Code */}
@@ -412,6 +401,19 @@ export default function DetailsPage({ guest, onLogout, onModify }) {
               display: 'block',
             }}
           />
+        </div>
+
+        <Divider />
+
+        {/* Menu (uniquement pour les invités au dîner) */}
+        {rsvpData?.vient_diner && <MenuSection t={t} />}
+
+        <Divider />
+
+        {/* Message biblique */}
+        <div className="details-note">
+          <p className="details-note-text">« {t.messagePersonnel} »</p>
+          <span className="details-note-signature">{t.messagePersonnelRef}</span>
         </div>
 
         {/* Actions */}
