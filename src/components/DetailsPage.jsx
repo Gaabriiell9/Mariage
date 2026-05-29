@@ -294,6 +294,86 @@ function SpecialMessage({ message }) {
   );
 }
 
+/* ── Gift Section ────────────────────────────────────────── */
+function GiftSection({ t }) {
+  return (
+    <div style={{
+      background: 'linear-gradient(160deg, rgba(255,255,255,0.96) 0%, rgba(235,242,252,0.92) 100%)',
+      backdropFilter: 'blur(20px)',
+      WebkitBackdropFilter: 'blur(20px)',
+      borderRadius: 20,
+      border: '1px solid rgba(102,144,195,0.28)',
+      boxShadow: '0 4px 32px rgba(58,87,140,0.10), inset 0 1px 0 rgba(255,255,255,0.8)',
+      marginBottom: 22,
+      animation: 'slideInCard 0.7s ease 0.8s both',
+      maxWidth: 560,
+      width: '100%',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      overflow: 'hidden',
+    }}>
+      {/* Liseré bleu en haut */}
+      <div style={{
+        height: 3,
+        background: 'linear-gradient(to right, #3A578C, #6690C3, #3A578C)',
+      }} />
+
+      <div style={{ textAlign: 'center', padding: '28px 32px 32px' }}>
+        {/* Sur-titre */}
+        <p style={{
+          fontSize: '0.68rem',
+          textTransform: 'uppercase',
+          letterSpacing: '0.2em',
+          color: '#6690C3',
+          fontWeight: 700,
+          marginBottom: 8,
+        }}>{t.giftEyebrow}</p>
+
+        {/* Titre principal */}
+        <h3 style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontSize: 'clamp(1.6rem, 5vw, 2rem)',
+          fontWeight: 500,
+          color: '#1A2E4A',
+          letterSpacing: '0.04em',
+          marginBottom: 0,
+        }}>{t.giftTitle}</h3>
+
+        <div style={{ padding: '0' }}><MenuDivider /></div>
+
+        {/* Message */}
+        <p style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontSize: 'clamp(1rem, 3vw, 1.12rem)',
+          fontStyle: 'italic',
+          color: '#1A2E4A',
+          lineHeight: 1.85,
+          marginBottom: 20,
+        }}>{t.giftMessage}</p>
+
+        {/* Mention contact discrète */}
+        <p style={{
+          fontSize: '0.82rem',
+          color: '#5A7AAE',
+          lineHeight: 1.7,
+        }}>
+          {t.giftContactBefore}{' '}
+          <a
+            href="tel:0680374569"
+            style={{
+              color: '#3A578C',
+              fontWeight: 600,
+              textDecoration: 'none',
+              borderBottom: '1px solid rgba(58,87,140,0.35)',
+              paddingBottom: 1,
+            }}
+          >0680374569</a>.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 /* ── Main ─────────────────────────────────────────────────── */
 export default function DetailsPage({ guest, onLogout, onModify }) {
   const { t, lang }  = useLang();
@@ -402,6 +482,11 @@ export default function DetailsPage({ guest, onLogout, onModify }) {
             }}
           />
         </div>
+
+        <Divider />
+
+        {/* Aide / Cadeau */}
+        <GiftSection t={t} />
 
         <Divider />
 

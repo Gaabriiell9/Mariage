@@ -90,6 +90,12 @@ export const translations = {
     cardCivil: "Cérémonie civile",
     cardDiner: "Dîner de mariage",
     labelDate: "Date",
+
+    // ── Section cadeau ────────────────────────────────────────
+    giftEyebrow: "VOTRE PRÉSENCE EST UN CADEAU",
+    giftTitle: "Suggestion de cadeau",
+    giftMessage: "Une enveloppe le jour J.",
+    giftContactBefore: "Pour un virement :",
   },
   pt: {
     eyebrow: "Você está cordialmente convidado ao",
@@ -182,5 +188,11 @@ export const translations = {
     cardCivil: "Cerimônia civil",
     cardDiner: "Jantar de casamento",
     labelDate: "Data",
+
+    // ── Seção presente ────────────────────────────────────────
+    giftEyebrow: "SUA PRESENÇA É UM PRESENTE",
+    giftTitle: "Sugestão de presente",
+    giftMessage: "Um envelope no dia.",
+    giftContactBefore: "Para transferência:",
   },
 };

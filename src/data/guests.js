@@ -39,7 +39,7 @@ export const GUESTS = [
   { id: 'rikelbi', prenom: 'Rikelbi', nom: '', password: 'PINHEIRO', category: 'adulte' },
   { id: 'anna-luiza', prenom: 'Anna Luiza', nom: '', password: 'SOUZA', category: 'adulte' },
   { id: 'maria-eduarda', prenom: 'Maria Eduarda', nom: '', password: 'SOUZA', category: 'adulte' },
-  { id: 'william', prenom: 'William', nom: '', password: 'RIBEIRO', category: 'adulte' },
+  { id: 'william', prenom: 'William', nom: '', password: 'RIBEIRO', category: 'enfants' },
   { id: 'clarisse', prenom: 'Clarisse', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'samuel', prenom: 'Samuel', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'mathilde', prenom: 'Mathilde', nom: '', password: 'CHAUDRUC', category: 'adulte' },
@@ -53,6 +53,9 @@ export const GUESTS = [
   { id: 'dalila', prenom: 'Dalila', nom: 'Santos', password: 'santos', category: 'adulte' },
   { id: 'bruno', prenom: 'Bruno', nom: 'Ayanne', password: 'ayanne', category: 'adulte' },
   { id: 'gabriel-ferreira', prenom: 'Gabriel', nom: 'Ferreira', password: 'ferreira', category: 'adulte' },
+  { id: 'josiane-ribeiro', prenom: 'Josiane', nom: 'Ribeiro', password: 'ribeiro', category: 'adulte' },
+  { id: 'heleini', prenom: 'Heleini', nom: 'Freitas', password: 'freitas', category: 'adulte' },
+  { id: 'francisco', prenom: 'Francisco', nom: 'Freitas', password: 'freitas', category: 'adulte' },
 
   // --- Enfants (admin uniquement, non cherchables sur HomePage) ---
   { id: 'naely', prenom: 'Naely', nom: '', password: '', category: 'enfant' },
