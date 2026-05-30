@@ -41,7 +41,7 @@ export const GUESTS = [
   { id: 'maria-eduarda', prenom: 'Maria Eduarda', nom: '', password: 'SOUZA', category: 'adulte' },
   { id: 'william', prenom: 'William', nom: '', password: 'RIBEIRO', category: 'enfants' },
   { id: 'clarisse', prenom: 'Clarisse', nom: '', password: 'RIBEIRO', category: 'adulte' },
-  { id: 'samuel', prenom: 'Samuel', nom: '', password: 'DASMASCENO', category: 'adulte' },
+  { id: 'samuel', prenom: 'Samuel', nom: '', password: 'DAMASCENO', category: 'adulte' },
   { id: 'mathilde', prenom: 'Mathilde', nom: '', password: 'CHAUDRUC', category: 'adulte' },
   { id: 'adrielly', prenom: 'Adrielly', nom: '', password: 'LEROY', category: 'adulte' },
   { id: 'leon', prenom: 'Léon', nom: '', password: 'MAIA', category: 'adulte' },
