@@ -39,7 +39,6 @@ export const GUESTS = [
   { id: 'rikelbi', prenom: 'Rikelbi', nom: '', password: 'PINHEIRO', category: 'adulte' },
   { id: 'anna-luiza', prenom: 'Anna Luiza', nom: '', password: 'SOUZA', category: 'adulte' },
   { id: 'maria-eduarda', prenom: 'Maria Eduarda', nom: '', password: 'SOUZA', category: 'adulte' },
-  { id: 'william', prenom: 'William', nom: '', password: 'RIBEIRO', category: 'enfants' },
   { id: 'clarisse', prenom: 'Clarisse', nom: '', password: 'RIBEIRO', category: 'adulte' },
   { id: 'samuel', prenom: 'Samuel', nom: '', password: 'DAMASCENO', category: 'adulte' },
   { id: 'mathilde', prenom: 'Mathilde', nom: '', password: 'CHAUDRUC', category: 'adulte' },
@@ -72,6 +71,7 @@ export const GUESTS = [
   { id: 'elise', prenom: 'Elise', nom: '', password: '', category: 'enfant' },
   { id: 'maely', prenom: 'Maely', nom: '', password: '', category: 'enfant' },
 ];
+
 
 // ============================================================
 //  INFORMATIONS DU MARIAGE
