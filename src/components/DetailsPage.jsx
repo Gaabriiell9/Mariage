@@ -319,16 +319,6 @@ function GiftSection({ t }) {
       }} />
 
       <div style={{ textAlign: 'center', padding: '28px 32px 32px' }}>
-        {/* Sur-titre */}
-        <p style={{
-          fontSize: '0.68rem',
-          textTransform: 'uppercase',
-          letterSpacing: '0.2em',
-          color: '#6690C3',
-          fontWeight: 700,
-          marginBottom: 8,
-        }}>{t.giftEyebrow}</p>
-
         {/* Titre principal */}
         <h3 style={{
           fontFamily: "'Cormorant Garamond', serif",
