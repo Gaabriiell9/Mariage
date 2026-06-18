@@ -59,6 +59,7 @@ export const GUESTS = [
   { id: 'isabelle-dapaixao', prenom: 'Isabelle', nom: 'Da Paixao', password: 'paixao', category: 'adulte' },
   { id: 'michelle-sogoro', prenom: 'Michelle', nom: 'Sogoro', password: 'sogoro', category: 'adulte' },
   { id: 'maelys-maito', prenom: 'Maëlys', nom: 'Maïto', password: 'maïto', category: 'adulte' },
+  { id: 'gildete', prenom: 'Gildete', nom: 'Santos', password: 'santos', category: 'adulte' },
 
   // --- Enfants (admin uniquement, non cherchables sur HomePage) ---
   { id: 'naely', prenom: 'Naely', nom: '', password: '', category: 'enfant' },
